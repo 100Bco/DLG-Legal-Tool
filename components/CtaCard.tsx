@@ -38,7 +38,7 @@ export function CtaCard({
             className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15"
           >
             <Phone className="h-4 w-4" aria-hidden />
-            Call {site.firm.shortName}
+            Call {site.firm.name}
           </a>
         </div>
         <p className="mt-4 text-xs text-white/70">

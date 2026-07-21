@@ -47,7 +47,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={site.firm.contactUrl} className="hover:text-[var(--brand)]">
-                  Contact {site.firm.shortName}
+                  Contact {site.firm.name}
                 </a>
               </li>
             </ul>

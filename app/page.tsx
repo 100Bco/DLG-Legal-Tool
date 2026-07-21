@@ -59,8 +59,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="chip bg-white/10 text-white ring-1 ring-white/20">
               <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-[var(--urgent-2)]" />
-              Free tools by{" "}
-              <FirmLink className="font-semibold underline decoration-white/40 underline-offset-2 hover:decoration-white" />
+              Free Texas personal-injury tools
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
               Two answers every Texas injury victim needs —{" "}

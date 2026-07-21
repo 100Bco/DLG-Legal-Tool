@@ -12,14 +12,16 @@ export function Disclaimer({ compact = false }: { compact?: boolean }) {
     >
       <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden />
       <div>
-        <p className="font-bold">Not legal advice</p>
+        <p className="font-bold">This result is an estimate only — not legal advice</p>
         <p className={compact ? "mt-1" : "mt-1 leading-relaxed"}>
-          This tool provides general information and rough estimates for
-          educational purposes only. It is not a substitute for advice from a
-          licensed Texas attorney, does not account for every exception, and does
-          not create an attorney–client relationship. Deadlines and case values
-          depend on facts a calculator cannot see. Always confirm your specific
-          situation with a qualified lawyer before acting.
+          Every number this tool shows is an <strong>approximate estimate</strong>{" "}
+          and may differ from your actual situation. It provides general
+          information for educational purposes only, is not a substitute for
+          advice from a licensed Texas attorney, does not account for every
+          exception, and does not create an attorney–client relationship.
+          Deadlines and case values depend on facts a calculator cannot see.
+          Always confirm your specific situation with a qualified lawyer before
+          acting.
         </p>
       </div>
     </aside>
