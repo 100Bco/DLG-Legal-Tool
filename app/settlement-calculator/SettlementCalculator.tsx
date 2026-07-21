@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Scale,
   Sparkles,
+  Info,
 } from "lucide-react";
 import {
   SEVERITIES,
@@ -21,12 +22,74 @@ import { CtaCard } from "@/components/CtaCard";
 
 const SEVERITY_OPTIONS = Object.values(SEVERITIES);
 
+// Guided fault selection — most people can't put a number on their own fault,
+// so we describe common accident scenarios (who hit whom / who did what) that
+// each map to a *typical* fault percentage. These are general tendencies, not
+// legal determinations: fault is ultimately decided by the insurer or a jury.
+const FAULT_OPTIONS: { pct: number; label: string; desc: string }[] = [
+  {
+    pct: 0,
+    label: "I was rear-ended",
+    desc: "Someone hit me from behind. The rear driver is usually at fault.",
+  },
+  {
+    pct: 0,
+    label: "The other driver ran a red light or stop sign",
+    desc: "They failed to stop or yield when they should have.",
+  },
+  {
+    pct: 10,
+    label: "The other driver turned or merged into me",
+    desc: "e.g. a left turn across my path, or merging into my lane.",
+  },
+  {
+    pct: 30,
+    label: "I was turning, merging, or changing lanes",
+    desc: "I was making the maneuver when the crash happened.",
+  },
+  {
+    pct: 50,
+    label: "We were both moving / it's unclear",
+    desc: "Both of us may have contributed, or no one is clearly at fault.",
+  },
+  {
+    pct: 75,
+    label: "I hit or rear-ended the other vehicle",
+    desc: "I ran into them. This usually points to my fault.",
+  },
+  {
+    pct: 15,
+    label: "I slipped, tripped, or fell on someone's property",
+    desc: "The property owner failed to fix or warn about a hazard.",
+  },
+  {
+    pct: 0,
+    label: "A dog bit or attacked me",
+    desc: "The dog's owner is usually responsible.",
+  },
+  {
+    pct: 0,
+    label: "I was hurt by a defective or dangerous product",
+    desc: "The maker or seller is usually responsible.",
+  },
+  {
+    pct: 50,
+    label: "Someone else injured me and we may share blame",
+    desc: "e.g. a fight, sports, or an accident where both acted.",
+  },
+  {
+    pct: 0,
+    label: "Something else / I'm not sure",
+    desc: "We'll assume no fault on your part for now — a lawyer can assess it.",
+  },
+];
+
 export function SettlementCalculator() {
   const [medicalBills, setMedicalBills] = useState("");
   const [lostWages, setLostWages] = useState("");
   const [otherEconomic, setOtherEconomic] = useState("");
   const [severity, setSeverity] = useState<SeverityId>("moderate");
-  const [faultPercent, setFaultPercent] = useState("0");
+  const [faultIdx, setFaultIdx] = useState(0);
   const [result, setResult] = useState<SettlementResult | null>(null);
 
   function num(v: string): number {
@@ -42,7 +105,7 @@ export function SettlementCalculator() {
         lostWages: num(lostWages),
         otherEconomic: num(otherEconomic),
         severity,
-        faultPercent: num(faultPercent),
+        faultPercent: FAULT_OPTIONS[faultIdx].pct,
       }),
     );
   }
@@ -131,24 +194,52 @@ export function SettlementCalculator() {
             </div>
           </fieldset>
 
-          <label className="mt-5 block text-sm font-semibold text-slate-800">
-            <span className="flex items-center justify-between">
-              <span>Your share of fault</span>
-              <span className="chip bg-slate-100 text-slate-700">{num(faultPercent)}%</span>
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              step={5}
-              value={num(faultPercent)}
-              onChange={(e) => setFaultPercent(e.target.value)}
-              className="mt-2 w-full accent-[var(--brand)]"
-            />
-            <span className="mt-1 block text-xs font-normal text-slate-500">
-              In Texas, more than 50% fault generally bars recovery entirely.
-            </span>
-          </label>
+          <fieldset className="mt-5">
+            <legend className="text-sm font-semibold text-slate-800">
+              What happened?
+            </legend>
+            <p className="mt-0.5 text-xs text-slate-500">
+              Pick the closest description — you don&apos;t need to know an exact
+              fault percentage.
+            </p>
+            <div className="mt-2 space-y-2">
+              {FAULT_OPTIONS.map((f, i) => (
+                <label
+                  key={i}
+                  className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 text-sm transition ${
+                    faultIdx === i
+                      ? "border-[var(--brand)] bg-[var(--brand)]/5 ring-2 ring-[var(--brand)]/15"
+                      : "border-slate-300 hover:border-slate-400"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="fault"
+                    value={i}
+                    checked={faultIdx === i}
+                    onChange={() => setFaultIdx(i)}
+                    className="mt-1 accent-[var(--brand)]"
+                  />
+                  <span>
+                    <span className="font-semibold text-slate-900">{f.label}</span>
+                    <span className="mt-0.5 block text-xs text-slate-500">
+                      {f.desc}
+                    </span>
+                  </span>
+                </label>
+              ))}
+            </div>
+            <p className="mt-2 flex gap-2 rounded-lg bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand)]" aria-hidden />
+              <span>
+                Not sure? Choose your best guess. Fault is ultimately decided by
+                the insurance company or a jury — and an initial blame
+                assignment is often negotiable. A lawyer can push back on a
+                fault split you think is unfair. In Texas, being more than 50%
+                at fault generally bars recovery entirely.
+              </span>
+            </p>
+          </fieldset>
 
           <button
             type="submit"
