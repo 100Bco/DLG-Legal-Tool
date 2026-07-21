@@ -11,7 +11,7 @@ import {
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { TrustBar } from "@/components/TrustBar";
-import { AttorneySpotlight } from "@/components/AttorneySpotlight";
+import { CtaCard } from "@/components/CtaCard";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} — ${site.tagline}`,
@@ -177,10 +177,10 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Slim "backed by a real attorney" trust bar                       */}
+      {/* Closing CTA                                                      */}
       {/* ---------------------------------------------------------------- */}
-      <section className="mx-auto max-w-5xl px-4 pb-14">
-        <AttorneySpotlight />
+      <section className="mx-auto max-w-5xl px-4 pb-16">
+        <CtaCard />
       </section>
     </div>
   );
