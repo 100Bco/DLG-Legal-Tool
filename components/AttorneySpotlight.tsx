@@ -6,7 +6,7 @@ import { FirmLink } from "@/components/FirmLink";
 /**
  * Founder spotlight — a real attorney photo builds trust (E-E-A-T) far more
  * than stock imagery. The portrait sits on the brand-navy card, matching the
- * firm's own site treatment. Image lives at /public/attorney-loc-dang.png.
+ * firm's own site treatment. Image lives at /public/dang-lawyer.webp.
  */
 export function AttorneySpotlight() {
   return (
@@ -50,11 +50,11 @@ export function AttorneySpotlight() {
 
         <div className="relative flex h-full items-end justify-center sm:justify-end">
           <Image
-            src="/attorney-loc-dang.png"
+            src="/dang-lawyer.webp"
             alt="Loc Dang, founder of Dang Law Group"
-            width={520}
-            height={640}
-            className="h-auto w-56 max-w-full object-contain object-bottom drop-shadow-2xl sm:w-full"
+            width={977}
+            height={1237}
+            className="mx-auto h-auto w-40 max-w-full object-contain object-bottom drop-shadow-2xl sm:mx-0 sm:w-72"
             priority={false}
           />
         </div>
