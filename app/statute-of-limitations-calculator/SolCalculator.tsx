@@ -75,7 +75,7 @@ export function SolCalculator() {
           </span>
           <div>
             <p className="text-sm font-bold text-slate-900">Deadline checker</p>
-            <p className="text-xs text-slate-500">Takes about 20 seconds</p>
+            <p className="text-xs text-slate-600">Takes about 20 seconds</p>
           </div>
         </div>
 
@@ -114,7 +114,7 @@ export function SolCalculator() {
               <Building2 className="h-4 w-4 text-slate-400" aria-hidden />
               Is a government entity involved?
             </legend>
-            <p className="mt-0.5 text-xs text-slate-500">
+            <p className="mt-0.5 text-xs text-slate-600">
               City, county, state, public hospital, transit, or a government employee.
             </p>
             <div className="mt-2 flex flex-wrap gap-2">
@@ -206,7 +206,7 @@ export function SolCalculator() {
                   </div>
                 )}
                 {result.minorTollingApplied && (
-                  <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                  <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-slate-600">
                     <Baby className="h-3.5 w-3.5" aria-hidden />
                     Adjusted for minor tolling
                   </p>
