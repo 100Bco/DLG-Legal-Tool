@@ -55,11 +55,7 @@ export default function Home() {
         <div className="texture-dots absolute inset-0" aria-hidden />
         <div className="relative mx-auto max-w-5xl px-4 pb-28 pt-14 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="chip bg-white/10 text-white ring-1 ring-white/20">
-              <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-[var(--urgent-2)]" />
-              Free Texas personal-injury tools
-            </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
               Two answers every Texas injury victim needs —{" "}
               <span className="bg-gradient-to-r from-white to-[#c7d0ff] bg-clip-text text-transparent">
                 in seconds
@@ -136,10 +132,11 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-4 py-16">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Built to help first — not to sell
+            Know where you stand before you talk to an insurer
           </h2>
           <p className="mt-3 text-slate-600">
-            Straight answers, grounded in the actual Texas statutes.
+            Insurance companies move fast. These free tools give you the facts —
+            straight from Texas law — so you can make decisions with confidence.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
