@@ -7,13 +7,11 @@ import {
   ScrollText,
   ShieldAlert,
   Lock,
-  Star,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { TrustBar } from "@/components/TrustBar";
-import { CtaCard } from "@/components/CtaCard";
-import { FirmLink } from "@/components/FirmLink";
+import { AttorneySpotlight } from "@/components/AttorneySpotlight";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} — ${site.tagline}`,
@@ -179,22 +177,10 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Authority strip + CTA                                            */}
+      {/* Slim "backed by a real attorney" trust bar                       */}
       {/* ---------------------------------------------------------------- */}
-      <section className="mx-auto max-w-5xl px-4 pb-16">
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-3 text-center">
-          <span className="flex items-center gap-1 text-[var(--gold)]">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-current" aria-hidden />
-            ))}
-          </span>
-          <p className="text-sm font-medium text-slate-600">
-            Backed by the attorneys at{" "}
-            <FirmLink className="font-semibold text-[var(--brand)] underline" /> —{" "}
-            {site.firm.description}.
-          </p>
-        </div>
-        <CtaCard />
+      <section className="mx-auto max-w-5xl px-4 pb-14">
+        <AttorneySpotlight />
       </section>
     </div>
   );
