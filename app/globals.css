@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* DLG brand palette (navy from the Dang Law Group logo). */
+:root {
+  --brand: #1e2b63;
+  --brand-accent: #2f3f8f;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-accent: var(--brand-accent);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
