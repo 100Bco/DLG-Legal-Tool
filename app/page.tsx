@@ -7,7 +7,6 @@ import {
   ScrollText,
   ShieldAlert,
   Lock,
-  Star,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
@@ -178,14 +177,9 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* Founder spotlight (trust) + CTA                                  */}
+      {/* Slim "backed by a real attorney" trust bar                       */}
       {/* ---------------------------------------------------------------- */}
-      <section className="mx-auto max-w-5xl px-4 pb-16">
-        <div className="mb-6 flex items-center justify-center gap-1 text-[var(--gold)]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="h-5 w-5 fill-current" aria-hidden />
-          ))}
-        </div>
+      <section className="mx-auto max-w-5xl px-4 pb-14">
         <AttorneySpotlight />
       </section>
     </div>

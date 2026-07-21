@@ -1,64 +1,45 @@
 import Image from "next/image";
-import { ArrowRight, BadgeCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { site } from "@/lib/site";
 import { FirmLink } from "@/components/FirmLink";
 
 /**
- * Founder spotlight — a real attorney photo builds trust (E-E-A-T) far more
- * than stock imagery. The portrait sits on the brand-navy card, matching the
- * firm's own site treatment. Image lives at /public/dang-lawyer.webp.
+ * Compact "backed by a real attorney" trust bar. A small circular headshot of
+ * founder Loc Dang builds E-E-A-T without taking over the page — it reads like
+ * a slim footer strip, not a hero section. Image: /public/dang-lawyer.webp.
  */
 export function AttorneySpotlight() {
   return (
-    <section className="bg-hero relative overflow-hidden rounded-2xl text-white shadow-xl shadow-slate-900/10">
-      <div className="texture-dots absolute inset-0" aria-hidden />
-      <div className="relative grid items-end gap-6 sm:grid-cols-[1.3fr_1fr]">
-        <div className="p-6 sm:p-8">
-          <span className="chip bg-white/10 text-white ring-1 ring-white/20">
-            <BadgeCheck className="h-3.5 w-3.5" aria-hidden />
-            Meet the founder
-          </span>
-          <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-3xl">
-            The attorney behind these free tools
-          </h2>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85">
-            These calculators are built and backed by{" "}
-            <FirmLink className="font-semibold text-white underline" />, a Texas
-            personal-injury firm serving the Austin community. We pursue the
-            compensation you deserve and have real experience winning cases
-            against insurance companies.
-          </p>
+    <section className="bg-hero flex flex-wrap items-center gap-x-4 gap-y-3 rounded-xl px-4 py-3 text-white shadow-lg shadow-slate-900/10 sm:px-5">
+      {/* Circular headshot, cropped to the face. */}
+      <Image
+        src="/dang-lawyer.webp"
+        alt="Loc Dang, founder of Dang Law Group"
+        width={977}
+        height={1237}
+        className="h-12 w-12 shrink-0 rounded-full object-cover object-top ring-2 ring-white/25"
+      />
 
-          <div className="mt-5">
-            <p className="text-lg font-bold">Loc Dang</p>
-            <p className="text-sm text-white/70">
-              Founder ·{" "}
-              <FirmLink className="underline decoration-white/40 hover:decoration-white">
-                Dang Law Group
-              </FirmLink>
-            </p>
-          </div>
-
-          <a
-            href={site.firm.contactUrl}
-            className="btn-urgent mt-6 inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold"
-          >
-            Get a free case review
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
-        </div>
-
-        <div className="relative flex h-full items-end justify-center sm:justify-end">
-          <Image
-            src="/dang-lawyer.webp"
-            alt="Loc Dang, founder of Dang Law Group"
-            width={977}
-            height={1237}
-            className="mx-auto h-auto w-40 max-w-full object-contain object-bottom drop-shadow-2xl sm:mx-0 sm:w-72"
-            priority={false}
-          />
-        </div>
+      <div className="min-w-0 flex-1">
+        <p className="text-sm font-semibold leading-tight">
+          Backed by Loc Dang, Founder
+        </p>
+        <p className="text-xs leading-tight text-white/70">
+          Real tools from{" "}
+          <FirmLink className="underline decoration-white/40 hover:decoration-white">
+            Dang Law Group
+          </FirmLink>
+          , a Texas personal-injury firm.
+        </p>
       </div>
+
+      <a
+        href={site.firm.contactUrl}
+        className="btn-urgent inline-flex w-full shrink-0 items-center justify-center gap-1.5 rounded-lg px-4 py-2 text-sm font-bold sm:w-auto"
+      >
+        Free case review
+        <ArrowRight className="h-4 w-4" aria-hidden />
+      </a>
     </section>
   );
 }
