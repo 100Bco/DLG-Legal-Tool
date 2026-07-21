@@ -199,9 +199,11 @@ export function SolCalculator() {
             heading={
               result.outcome === "government"
                 ? "Government deadlines are short — talk to a lawyer now"
-                : result.urgency === "critical" || result.outcome === "expired"
-                  ? "Time may be running out — get a free review today"
-                  : "Confirm your real deadline with Dang Law Group"
+                : result.outcome === "attorney"
+                  ? "This one needs a lawyer — get a free review"
+                  : result.urgency === "critical" || result.outcome === "expired"
+                    ? "Time may be running out — get a free review today"
+                    : "Confirm your real deadline with Dang Law Group"
             }
           />
         </div>
