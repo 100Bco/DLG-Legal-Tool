@@ -58,6 +58,26 @@ const FAULT_OPTIONS: { pct: number; label: string; desc: string }[] = [
     desc: "I ran into them. This usually points to my fault.",
   },
   {
+    pct: 15,
+    label: "I slipped, tripped, or fell on someone's property",
+    desc: "The property owner failed to fix or warn about a hazard.",
+  },
+  {
+    pct: 0,
+    label: "A dog bit or attacked me",
+    desc: "The dog's owner is usually responsible.",
+  },
+  {
+    pct: 0,
+    label: "I was hurt by a defective or dangerous product",
+    desc: "The maker or seller is usually responsible.",
+  },
+  {
+    pct: 50,
+    label: "Someone else injured me and we may share blame",
+    desc: "e.g. a fight, sports, or an accident where both acted.",
+  },
+  {
     pct: 0,
     label: "Something else / I'm not sure",
     desc: "We'll assume no fault on your part for now — a lawyer can assess it.",
@@ -176,7 +196,7 @@ export function SettlementCalculator() {
 
           <fieldset className="mt-5">
             <legend className="text-sm font-semibold text-slate-800">
-              What happened in the accident?
+              What happened?
             </legend>
             <p className="mt-0.5 text-xs text-slate-500">
               Pick the closest description — you don&apos;t need to know an exact
