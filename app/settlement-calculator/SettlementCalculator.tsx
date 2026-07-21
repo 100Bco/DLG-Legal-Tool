@@ -23,14 +23,45 @@ import { CtaCard } from "@/components/CtaCard";
 const SEVERITY_OPTIONS = Object.values(SEVERITIES);
 
 // Guided fault selection — most people can't put a number on their own fault,
-// so we offer plain-language scenarios that each map to a representative
-// percentage. Fault is ultimately decided by the insurer or a jury.
+// so we describe common accident scenarios (who hit whom / who did what) that
+// each map to a *typical* fault percentage. These are general tendencies, not
+// legal determinations: fault is ultimately decided by the insurer or a jury.
 const FAULT_OPTIONS: { pct: number; label: string; desc: string }[] = [
-  { pct: 0, label: "It wasn't my fault", desc: "The other party caused the accident." },
-  { pct: 15, label: "Mostly the other party", desc: "They were mainly responsible; I may share a little." },
-  { pct: 35, label: "We were both partly at fault", desc: "Shared blame, but more theirs than mine." },
-  { pct: 50, label: "About 50/50", desc: "Roughly equal responsibility." },
-  { pct: 75, label: "Mostly my fault", desc: "I was mainly responsible for the accident." },
+  {
+    pct: 0,
+    label: "I was rear-ended",
+    desc: "Someone hit me from behind. The rear driver is usually at fault.",
+  },
+  {
+    pct: 0,
+    label: "The other driver ran a red light or stop sign",
+    desc: "They failed to stop or yield when they should have.",
+  },
+  {
+    pct: 10,
+    label: "The other driver turned or merged into me",
+    desc: "e.g. a left turn across my path, or merging into my lane.",
+  },
+  {
+    pct: 30,
+    label: "I was turning, merging, or changing lanes",
+    desc: "I was making the maneuver when the crash happened.",
+  },
+  {
+    pct: 50,
+    label: "We were both moving / it's unclear",
+    desc: "Both of us may have contributed, or no one is clearly at fault.",
+  },
+  {
+    pct: 75,
+    label: "I hit or rear-ended the other vehicle",
+    desc: "I ran into them. This usually points to my fault.",
+  },
+  {
+    pct: 0,
+    label: "Something else / I'm not sure",
+    desc: "We'll assume no fault on your part for now — a lawyer can assess it.",
+  },
 ];
 
 export function SettlementCalculator() {
@@ -38,7 +69,7 @@ export function SettlementCalculator() {
   const [lostWages, setLostWages] = useState("");
   const [otherEconomic, setOtherEconomic] = useState("");
   const [severity, setSeverity] = useState<SeverityId>("moderate");
-  const [faultPercent, setFaultPercent] = useState("0");
+  const [faultIdx, setFaultIdx] = useState(0);
   const [result, setResult] = useState<SettlementResult | null>(null);
 
   function num(v: string): number {
@@ -54,7 +85,7 @@ export function SettlementCalculator() {
         lostWages: num(lostWages),
         otherEconomic: num(otherEconomic),
         severity,
-        faultPercent: num(faultPercent),
+        faultPercent: FAULT_OPTIONS[faultIdx].pct,
       }),
     );
   }
@@ -145,18 +176,18 @@ export function SettlementCalculator() {
 
           <fieldset className="mt-5">
             <legend className="text-sm font-semibold text-slate-800">
-              Who was at fault?
+              What happened in the accident?
             </legend>
             <p className="mt-0.5 text-xs text-slate-500">
               Pick the closest description — you don&apos;t need to know an exact
-              percentage.
+              fault percentage.
             </p>
             <div className="mt-2 space-y-2">
-              {FAULT_OPTIONS.map((f) => (
+              {FAULT_OPTIONS.map((f, i) => (
                 <label
-                  key={f.pct}
+                  key={i}
                   className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 text-sm transition ${
-                    num(faultPercent) === f.pct
+                    faultIdx === i
                       ? "border-[var(--brand)] bg-[var(--brand)]/5 ring-2 ring-[var(--brand)]/15"
                       : "border-slate-300 hover:border-slate-400"
                   }`}
@@ -164,9 +195,9 @@ export function SettlementCalculator() {
                   <input
                     type="radio"
                     name="fault"
-                    value={f.pct}
-                    checked={num(faultPercent) === f.pct}
-                    onChange={() => setFaultPercent(String(f.pct))}
+                    value={i}
+                    checked={faultIdx === i}
+                    onChange={() => setFaultIdx(i)}
                     className="mt-1 accent-[var(--brand)]"
                   />
                   <span>
