@@ -132,6 +132,9 @@ export type SolOutcome =
   | "deadline"
   | "expired"
   | "government"
+  // Situation is too fact-specific for a reliable date (e.g. medical
+  // malpractice involving a minor) — we decline to output a number.
+  | "attorney"
   | "invalid";
 
 export interface SolResult {
@@ -251,28 +254,54 @@ export function calculateSol(input: SolInput): SolResult {
   const notes: string[] = [];
   let minorTollingApplied = false;
 
+  // --- Was the injured person a minor at the time of the incident? --------
+  // Only trust a DOB that is on/before the incident date (a DOB *after* the
+  // incident is nonsensical and is ignored rather than tolling wrongly).
+  const dob = input.dateOfBirth ? parseISO(input.dateOfBirth) : null;
+  const dobUsable = dob !== null && dob.getTime() <= incident.getTime();
+  const eighteenth = dobUsable ? addYears(dob!, 18) : null;
+  const wasMinorAtIncident =
+    eighteenth !== null && incident.getTime() < eighteenth.getTime();
+
+  // --- Medical malpractice + minor: too fact-specific for a number. -------
+  // Texas med-mal limitations for minors are NOT the simple "18th birthday +
+  // 2 years" rule (see § 74.251 and Tex. courts on minors under 12). Rather
+  // than risk a falsely reassuring date, we decline and route to an attorney.
+  if (wasMinorAtIncident && input.caseType === "medical-malpractice") {
+    return {
+      outcome: "attorney",
+      minorTollingApplied: false,
+      caseType,
+      headline:
+        "A medical-malpractice claim involving a child follows special rules — we won't estimate a date.",
+      notes: [
+        "Texas medical-malpractice deadlines for minors are governed by Tex. Civ. Prac. & Rem. Code § 74.251 and related case law, and do not follow the ordinary minor-tolling rule.",
+        "For a young child, the deadline may be tied to a specific birthday rather than a fixed number of years — and getting it wrong can permanently bar the claim.",
+        "Please speak with a Texas attorney promptly to confirm the exact deadline for this child.",
+      ],
+      urgency: "critical",
+    };
+  }
+
   // --- Minor tolling: legal disability tolls the clock (§ 16.001). --------
   // A minor's clock generally does not start until their 18th birthday, so the
-  // deadline becomes 18th birthday + statutory period.
-  const dob = input.dateOfBirth ? parseISO(input.dateOfBirth) : null;
-  if (dob) {
-    const eighteenth = addYears(dob, 18);
-    const wasMinorAtIncident = incident.getTime() < eighteenth.getTime();
-    if (wasMinorAtIncident) {
-      const tolledDeadline = addYears(eighteenth, caseType.years);
-      // Use whichever protects the claimant longer.
-      if (tolledDeadline.getTime() > deadline.getTime()) {
-        deadline = tolledDeadline;
-        minorTollingApplied = true;
-        notes.push(
-          "Because the injured person was a minor at the time, the deadline is generally tolled: the clock starts at their 18th birthday (Tex. Civ. Prac. & Rem. Code § 16.001). The date shown reflects that tolling.",
-        );
-        if (input.caseType === "medical-malpractice") {
-          notes.push(
-            "Medical-malpractice claims have special rules for minors — for a child under 12, a claim may need to be filed by the 14th birthday. Confirm this date with an attorney.",
-          );
-        }
-      }
+  // deadline becomes 18th birthday + statutory period. This applies to the
+  // minor's OWN injury claim — not to wrongful death, where the deceased's age
+  // is irrelevant and any tolling would attach to a surviving minor
+  // beneficiary instead.
+  if (wasMinorAtIncident && input.caseType === "wrongful-death") {
+    notes.push(
+      "You entered a date of birth showing the deceased was a minor. Wrongful-death deadlines are not tolled based on the deceased's age. However, if a surviving beneficiary is a minor, their share may be tolled — confirm this with an attorney.",
+    );
+  } else if (wasMinorAtIncident && eighteenth) {
+    const tolledDeadline = addYears(eighteenth, caseType.years);
+    // Use whichever protects the claimant longer.
+    if (tolledDeadline.getTime() > deadline.getTime()) {
+      deadline = tolledDeadline;
+      minorTollingApplied = true;
+      notes.push(
+        "Because the injured person was a minor at the time, the deadline is generally tolled: the clock starts at their 18th birthday (Tex. Civ. Prac. & Rem. Code § 16.001). The date shown reflects that tolling.",
+      );
     }
   }
 
@@ -322,6 +351,17 @@ export function calculateSol(input: SolInput): SolResult {
     notes,
     urgency,
   };
+}
+
+/**
+ * Test-only helper: add whole years to an ISO date and return an ISO date.
+ * Exposes the internal leap-day clamping for unit tests without leaking Date
+ * objects into the public API.
+ */
+export function addYearsForTest(iso: string, years: number): string {
+  const d = parseISO(iso);
+  if (!d) throw new Error(`invalid iso: ${iso}`);
+  return addYears(d, years).toISOString().slice(0, 10);
 }
 
 /** Format a UTC date as e.g. "March 4, 2027". */

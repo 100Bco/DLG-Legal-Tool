@@ -72,6 +72,17 @@ Two MVP tools (per the project brief):
 
 ## Testing
 
-- `lib/` logic is pure and unit-testable. A 10-case QA sweep (SOL deadlines,
-  minor tolling, leap-day clamp, government refusal, settlement ranges, 51% bar)
-  was run during the initial build. Expand toward the brief's 20-case target.
+- `npm test` — runs the calculation-engine unit tests via Node's built-in test
+  runner (no extra dependencies). Tests live next to the logic in
+  `lib/sol.test.ts` and `lib/settlement.test.ts`.
+- Coverage: 28 test cases / ~45 assertions — 2-year deadlines for every case
+  type, minor tolling (incl. rescuing an otherwise-expired case), medical-
+  malpractice-minor and wrongful-death special handling, government refusal,
+  leap-day date math, invalid/future dates, urgency bands, settlement
+  multipliers per severity, the Texas 50% vs 51% fault boundary, input
+  clamping, and currency formatting.
+- CI (`.github/workflows/ci.yml`) runs typecheck + tests + build on every push
+  and PR, so a formula regression fails the build.
+- The legal *rules* still require attorney sign-off before launch; the tests
+  guarantee the code faithfully implements the rules as written, not that the
+  rules themselves are the final word on Texas law.
