@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Scale,
   Sparkles,
+  Info,
 } from "lucide-react";
 import {
   SEVERITIES,
@@ -20,6 +21,17 @@ import { Disclaimer } from "@/components/Disclaimer";
 import { CtaCard } from "@/components/CtaCard";
 
 const SEVERITY_OPTIONS = Object.values(SEVERITIES);
+
+// Guided fault selection — most people can't put a number on their own fault,
+// so we offer plain-language scenarios that each map to a representative
+// percentage. Fault is ultimately decided by the insurer or a jury.
+const FAULT_OPTIONS: { pct: number; label: string; desc: string }[] = [
+  { pct: 0, label: "It wasn't my fault", desc: "The other party caused the accident." },
+  { pct: 15, label: "Mostly the other party", desc: "They were mainly responsible; I may share a little." },
+  { pct: 35, label: "We were both partly at fault", desc: "Shared blame, but more theirs than mine." },
+  { pct: 50, label: "About 50/50", desc: "Roughly equal responsibility." },
+  { pct: 75, label: "Mostly my fault", desc: "I was mainly responsible for the accident." },
+];
 
 export function SettlementCalculator() {
   const [medicalBills, setMedicalBills] = useState("");
@@ -131,24 +143,52 @@ export function SettlementCalculator() {
             </div>
           </fieldset>
 
-          <label className="mt-5 block text-sm font-semibold text-slate-800">
-            <span className="flex items-center justify-between">
-              <span>Your share of fault</span>
-              <span className="chip bg-slate-100 text-slate-700">{num(faultPercent)}%</span>
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              step={5}
-              value={num(faultPercent)}
-              onChange={(e) => setFaultPercent(e.target.value)}
-              className="mt-2 w-full accent-[var(--brand)]"
-            />
-            <span className="mt-1 block text-xs font-normal text-slate-500">
-              In Texas, more than 50% fault generally bars recovery entirely.
-            </span>
-          </label>
+          <fieldset className="mt-5">
+            <legend className="text-sm font-semibold text-slate-800">
+              Who was at fault?
+            </legend>
+            <p className="mt-0.5 text-xs text-slate-500">
+              Pick the closest description — you don&apos;t need to know an exact
+              percentage.
+            </p>
+            <div className="mt-2 space-y-2">
+              {FAULT_OPTIONS.map((f) => (
+                <label
+                  key={f.pct}
+                  className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 text-sm transition ${
+                    num(faultPercent) === f.pct
+                      ? "border-[var(--brand)] bg-[var(--brand)]/5 ring-2 ring-[var(--brand)]/15"
+                      : "border-slate-300 hover:border-slate-400"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="fault"
+                    value={f.pct}
+                    checked={num(faultPercent) === f.pct}
+                    onChange={() => setFaultPercent(String(f.pct))}
+                    className="mt-1 accent-[var(--brand)]"
+                  />
+                  <span>
+                    <span className="font-semibold text-slate-900">{f.label}</span>
+                    <span className="mt-0.5 block text-xs text-slate-500">
+                      {f.desc}
+                    </span>
+                  </span>
+                </label>
+              ))}
+            </div>
+            <p className="mt-2 flex gap-2 rounded-lg bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
+              <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand)]" aria-hidden />
+              <span>
+                Not sure? Choose your best guess. Fault is ultimately decided by
+                the insurance company or a jury — and an initial blame
+                assignment is often negotiable. A lawyer can push back on a
+                fault split you think is unfair. In Texas, being more than 50%
+                at fault generally bars recovery entirely.
+              </span>
+            </p>
+          </fieldset>
 
           <button
             type="submit"
