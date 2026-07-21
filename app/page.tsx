@@ -132,10 +132,11 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-4 py-16">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Built to help first — not to sell
+            Know where you stand before you talk to an insurer
           </h2>
           <p className="mt-3 text-slate-600">
-            Straight answers, grounded in the actual Texas statutes.
+            Insurance companies move fast. These free tools give you the facts —
+            straight from Texas law — so you can make decisions with confidence.
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
