@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site, tools } from "@/lib/site";
+import { FirmLink } from "@/components/FirmLink";
 
 export function Footer() {
   return (
@@ -11,13 +12,7 @@ export function Footer() {
             <p className="mt-2 text-slate-500">{site.tagline}.</p>
             <p className="mt-3 text-slate-500">
               A free product of{" "}
-              <a
-                href={site.firm.url}
-                className="font-medium text-[var(--brand)] underline"
-              >
-                {site.firm.name}
-              </a>
-              .
+              <FirmLink className="font-medium text-[var(--brand)] underline" />.
             </p>
           </div>
           <div>
@@ -52,7 +47,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={site.firm.contactUrl} className="hover:text-[var(--brand)]">
-                  Contact {site.firm.shortName}
+                  Contact {site.firm.name}
                 </a>
               </li>
             </ul>
@@ -63,7 +58,8 @@ export function Footer() {
           educational purposes only. It is not legal advice, does not create an
           attorney–client relationship, and should not replace consultation with
           a licensed Texas attorney. &copy; {new Date().getFullYear()}{" "}
-          {site.firm.name}. All rights reserved.
+          <FirmLink className="hover:text-[var(--brand)] hover:underline" />. All
+          rights reserved.
         </p>
       </div>
     </footer>

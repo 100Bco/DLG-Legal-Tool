@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FirmLink } from "@/components/FirmLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy",
@@ -34,8 +35,9 @@ export default function Privacy() {
         </p>
         <p className="leading-relaxed">
           <strong>If you contact us.</strong> If you choose to reach out to{" "}
-          {site.firm.name} for a case review, the information you provide will be
-          handled by the firm in accordance with its own privacy practices.
+          <FirmLink className="text-[var(--brand)] underline" /> for a case
+          review, the information you provide will be handled by the firm in
+          accordance with its own privacy practices.
         </p>
         <p className="leading-relaxed">
           <strong>Cookies.</strong> We use only the cookies necessary to run the
@@ -44,10 +46,7 @@ export default function Privacy() {
         </p>
         <p className="leading-relaxed">
           Questions about privacy? Contact{" "}
-          <a href={site.firm.contactUrl} className="text-[var(--brand)] underline">
-            {site.firm.name}
-          </a>
-          .
+          <FirmLink className="text-[var(--brand)] underline" />.
         </p>
       </div>
     </div>

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Calculator } from "lucide-react";
 import { SettlementCalculator } from "./SettlementCalculator";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TrustBar } from "@/components/TrustBar";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata, webApplicationSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -61,7 +63,11 @@ export default function Page() {
       />
 
       <header className="mt-4">
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+        <span className="chip bg-indigo-50 text-[var(--brand)]">
+          <Calculator className="h-3.5 w-3.5" aria-hidden />
+          Free value estimator
+        </span>
+        <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Texas Injury Settlement Calculator
         </h1>
         <p className="mt-3 text-lg leading-relaxed text-slate-600">
@@ -69,6 +75,9 @@ export default function Page() {
           This tool uses the multiplier method and applies Texas comparative-fault
           rules — but a real valuation always requires a lawyer.
         </p>
+        <div className="mt-4">
+          <TrustBar />
+        </div>
       </header>
 
       <div className="mt-8">

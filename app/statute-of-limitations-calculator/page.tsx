@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CalendarClock } from "lucide-react";
 import { SolCalculator } from "./SolCalculator";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TrustBar } from "@/components/TrustBar";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata, webApplicationSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -61,7 +63,11 @@ export default function Page() {
       />
 
       <header className="mt-4">
-        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+        <span className="chip bg-rose-50 text-[var(--urgent)]">
+          <CalendarClock className="h-3.5 w-3.5" aria-hidden />
+          Free deadline checker
+        </span>
+        <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
           Texas Statute of Limitations Calculator
         </h1>
         <p className="mt-3 text-lg leading-relaxed text-slate-600">
@@ -69,6 +75,9 @@ export default function Page() {
           Texas. Enter your accident date and case type to see an estimated
           deadline — with the governing statute cited for every answer.
         </p>
+        <div className="mt-4">
+          <TrustBar />
+        </div>
       </header>
 
       <div className="mt-8">
