@@ -14,7 +14,7 @@ export const site = {
     name: "Dang Law Group",
     shortName: "DLG",
     description: "Accidents & Injuries",
-    url: "https://danglawgroup.com",
+    url: "https://danglawgroup.com/",
     // Where the CTA should send qualified leads.
     contactUrl: "https://danglawgroup.com/contact",
     phone: "+1-512-888-8888",

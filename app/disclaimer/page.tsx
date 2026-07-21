@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FirmLink } from "@/components/FirmLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "Legal disclaimer",
@@ -29,7 +30,9 @@ export default function DisclaimerPage() {
         </p>
         <p className="leading-relaxed">
           <strong>No attorney–client relationship.</strong> Using this website,
-          or contacting {site.firm.name} through it, does not create an
+          or contacting{" "}
+          <FirmLink className="text-[var(--brand)] underline" /> through it,
+          does not create an
           attorney–client relationship. That relationship is formed only through
           a signed, written engagement agreement.
         </p>
@@ -50,7 +53,8 @@ export default function DisclaimerPage() {
         <p className="leading-relaxed">
           <strong>No warranty.</strong> While we strive for accuracy, we make no
           warranty that the information here is complete, current, or correct.
-          Laws change, and errors can occur. {site.firm.name} disclaims all
+          Laws change, and errors can occur.{" "}
+          <FirmLink className="text-[var(--brand)] underline" /> disclaims all
           liability for actions taken or not taken based on this website to the
           fullest extent permitted by law.
         </p>

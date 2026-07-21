@@ -1,14 +1,25 @@
 @import "tailwindcss";
 
-/* DLG brand palette (navy from the Dang Law Group logo). */
+/* ------------------------------------------------------------------ */
+/* DLG brand palette + urgency accents                                 */
+/* ------------------------------------------------------------------ */
 :root {
-  --brand: #1e2b63;
-  --brand-accent: #2f3f8f;
+  --brand: #1e2b63; /* Dang Law Group navy */
+  --brand-2: #2f3f8f; /* lighter navy */
+  --brand-3: #4658b5; /* highlight navy */
+  --urgent: #e11d48; /* rose — deadlines / act now */
+  --urgent-2: #f43f5e;
+  --amber: #f59e0b; /* approaching */
+  --gold: #d4a72c; /* trust / accent detail */
 }
 
 @theme inline {
   --color-brand: var(--brand);
-  --color-brand-accent: var(--brand-accent);
+  --color-brand-2: var(--brand-2);
+  --color-brand-3: var(--brand-3);
+  --color-urgent: var(--urgent);
+  --color-amber: var(--amber);
+  --color-gold: var(--gold);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -18,15 +29,145 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: #f8fafc;
   color: #0f172a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Respect users who prefer reduced motion. */
+/* ------------------------------------------------------------------ */
+/* Reusable visual utilities                                           */
+/* ------------------------------------------------------------------ */
+
+/* Deep navy hero gradient with a soft radial highlight. */
+.bg-hero {
+  background-color: var(--brand);
+  background-image:
+    radial-gradient(
+      1100px 500px at 78% -8%,
+      rgba(70, 88, 181, 0.55),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 420px at 10% 110%,
+      rgba(225, 29, 72, 0.22),
+      transparent 55%
+    ),
+    linear-gradient(160deg, #16204c 0%, #1e2b63 55%, #263679 100%);
+}
+
+/* Faint dotted texture — reads as "instrument / product surface". */
+.texture-dots {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Card that lifts on hover. */
+.card-lift {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 30px -12px rgba(30, 43, 99, 0.35),
+    0 4px 10px -6px rgba(30, 43, 99, 0.2);
+}
+
+/* Solid brand button with depth. */
+.btn-brand {
+  background: linear-gradient(180deg, var(--brand-2), var(--brand));
+  color: #fff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 10px 24px -10px rgba(30, 43, 99, 0.6);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+.btn-brand:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+.btn-brand:active {
+  transform: translateY(0);
+}
+
+/* Urgent CTA variant. */
+.btn-urgent {
+  background: linear-gradient(180deg, var(--urgent-2), var(--urgent));
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(225, 29, 72, 0.6);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+.btn-urgent:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* Small pill/chip. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Soft pulse for the "live" urgency dot. */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(225, 29, 72, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-ring 1.8s infinite;
+}
+
+/* Gentle rise-in for result cards. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.35s ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .pulse-dot,
+  .rise-in {
+    animation: none;
+  }
+  .card-lift:hover,
+  .btn-brand:hover,
+  .btn-urgent:hover {
+    transform: none;
   }
 }

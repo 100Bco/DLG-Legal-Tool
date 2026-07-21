@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site, tools } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FirmLink } from "@/components/FirmLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "About these tools",
@@ -27,10 +28,8 @@ export default function About() {
         </p>
         <p className="leading-relaxed">
           The tools are built and maintained by{" "}
-          <a href={site.firm.url} className="text-[var(--brand)] underline">
-            {site.firm.name}
-          </a>
-          , a Texas personal-injury law firm. We believe useful information
+          <FirmLink className="text-[var(--brand)] underline" />, a Texas
+          personal-injury law firm. We believe useful information
           should be free. If our calculators help you, and you decide you want a
           real person to look at your case, we&apos;re here — but there is never
           any obligation.

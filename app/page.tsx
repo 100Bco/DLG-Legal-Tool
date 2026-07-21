@@ -1,8 +1,19 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { site, tools } from "@/lib/site";
+import {
+  CalendarClock,
+  Calculator,
+  ArrowRight,
+  ScrollText,
+  ShieldAlert,
+  Lock,
+  Star,
+} from "lucide-react";
+import { site } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { TrustBar } from "@/components/TrustBar";
 import { CtaCard } from "@/components/CtaCard";
+import { FirmLink } from "@/components/FirmLink";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} — ${site.tagline}`,
@@ -11,74 +22,181 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
 });
 
+const TOOL_CARDS = [
+  {
+    slug: "statute-of-limitations-calculator",
+    icon: CalendarClock,
+    eyebrow: "Deadline checker",
+    title: "How long do I have to file?",
+    name: "Statute of Limitations Calculator",
+    blurb:
+      "Enter your accident date and case type to see your estimated Texas filing deadline — with the statute cited.",
+    cta: "Check my deadline",
+    accent: "urgent" as const,
+  },
+  {
+    slug: "settlement-calculator",
+    icon: Calculator,
+    eyebrow: "Value estimator",
+    title: "What could my claim be worth?",
+    name: "Settlement Calculator",
+    blurb:
+      "Estimate a settlement range from your medical bills, lost wages, and injury severity using the multiplier method.",
+    cta: "Estimate my claim",
+    accent: "brand" as const,
+  },
+];
+
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10 sm:py-16">
-      <section className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--brand-accent)]">
-          Free tools by {site.firm.name}
-        </p>
-        <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-          Answer the two biggest questions after a Texas injury
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
-          <em>How long do I have to file?</em> and{" "}
-          <em>What could my claim be worth?</em> Get clear, cited answers in
-          seconds — free, no sign-up, no pressure.
-        </p>
-      </section>
-
-      <section className="mt-12 grid gap-5 sm:grid-cols-2">
-        {tools.map((t) => (
-          <Link
-            key={t.slug}
-            href={`/${t.slug}/`}
-            className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-[var(--brand)]/40 hover:shadow-md"
-          >
-            <h2 className="text-xl font-bold text-[var(--brand)]">{t.name}</h2>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
-              {t.summary}
-            </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand)] group-hover:gap-2">
-              Open the tool
-              <span aria-hidden>&rarr;</span>
+    <div>
+      {/* ---------------------------------------------------------------- */}
+      {/* Hero                                                             */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="bg-hero relative overflow-hidden text-white">
+        <div className="texture-dots absolute inset-0" aria-hidden />
+        <div className="relative mx-auto max-w-5xl px-4 pb-28 pt-14 sm:pt-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="chip bg-white/10 text-white ring-1 ring-white/20">
+              <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-[var(--urgent-2)]" />
+              Free tools by{" "}
+              <FirmLink className="font-semibold underline decoration-white/40 underline-offset-2 hover:decoration-white" />
             </span>
-          </Link>
-        ))}
-      </section>
-
-      <section className="mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-        <h2 className="text-2xl font-bold text-slate-900">
-          Built to help first — not to sell
-        </h2>
-        <div className="mt-4 grid gap-6 sm:grid-cols-3">
-          <div>
-            <h3 className="font-semibold text-slate-900">Every answer is cited</h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              Results link to the exact Texas statute, so you can verify the law
-              yourself.
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
+              Two answers every Texas injury victim needs —{" "}
+              <span className="bg-gradient-to-r from-white to-[#c7d0ff] bg-clip-text text-transparent">
+                in seconds
+              </span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-white/85">
+              Free, private calculators that tell you how long you have to file
+              and what your claim could be worth — no sign-up, no pressure.
             </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-slate-900">Knows its limits</h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              When a situation is too risky for a simple number — like a claim
-              against the government — the tool says so.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-slate-900">Genuinely free</h3>
-            <p className="mt-1 text-sm leading-relaxed text-slate-600">
-              No account, no paywall. These calculators are a public resource
-              from {site.firm.name}.
-            </p>
+            <div className="mt-6 flex justify-center">
+              <TrustBar tone="light" />
+            </div>
           </div>
         </div>
       </section>
 
-      <div className="mt-12">
+      {/* ---------------------------------------------------------------- */}
+      {/* Tool cards — overlap the hero so they read as the main product   */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="mx-auto -mt-20 max-w-5xl px-4">
+        <div className="grid gap-5 sm:grid-cols-2">
+          {TOOL_CARDS.map((t) => {
+            const urgent = t.accent === "urgent";
+            return (
+              <Link
+                key={t.slug}
+                href={`/${t.slug}/`}
+                className="card-lift group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 sm:p-7"
+              >
+                <span
+                  className={`absolute right-6 top-6 chip ${
+                    urgent
+                      ? "bg-rose-50 text-[var(--urgent)]"
+                      : "bg-indigo-50 text-[var(--brand)]"
+                  }`}
+                >
+                  {t.eyebrow}
+                </span>
+                <span
+                  className={`flex h-12 w-12 items-center justify-center rounded-xl text-white ${
+                    urgent
+                      ? "bg-gradient-to-br from-[var(--urgent-2)] to-[var(--urgent)]"
+                      : "bg-gradient-to-br from-[var(--brand-2)] to-[var(--brand)]"
+                  }`}
+                >
+                  <t.icon className="h-6 w-6" aria-hidden />
+                </span>
+                <h2 className="mt-4 text-xl font-bold text-slate-900">
+                  {t.title}
+                </h2>
+                <p className="mt-1 text-sm font-semibold text-slate-500">
+                  {t.name}
+                </p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">
+                  {t.blurb}
+                </p>
+                <span
+                  className={`mt-5 inline-flex items-center gap-1.5 text-sm font-bold ${
+                    urgent ? "text-[var(--urgent)]" : "text-[var(--brand)]"
+                  }`}
+                >
+                  {t.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Trust / differentiators                                          */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="mx-auto max-w-5xl px-4 py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+            Built to help first — not to sell
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Straight answers, grounded in the actual Texas statutes.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {[
+            {
+              icon: ScrollText,
+              title: "Every answer is cited",
+              body: "Results link to the exact Texas statute, so you can verify the law yourself.",
+            },
+            {
+              icon: ShieldAlert,
+              title: "Knows its limits",
+              body: "When a case is too risky for a simple number — like a claim against the government — the tool says so.",
+            },
+            {
+              icon: Lock,
+              title: "Private & free",
+              body: "No account, no paywall. Your numbers are processed in your browser, not stored.",
+            },
+          ].map((f) => (
+            <div
+              key={f.title}
+              className="rounded-2xl border border-slate-200 bg-white p-6"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-[var(--brand)]">
+                <f.icon className="h-5 w-5" aria-hidden />
+              </span>
+              <h3 className="mt-4 font-bold text-slate-900">{f.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                {f.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Authority strip + CTA                                            */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="mx-auto max-w-5xl px-4 pb-16">
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3 text-center">
+          <span className="flex items-center gap-1 text-[var(--gold)]">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-5 w-5 fill-current" aria-hidden />
+            ))}
+          </span>
+          <p className="text-sm font-medium text-slate-600">
+            Backed by the attorneys at{" "}
+            <FirmLink className="font-semibold text-[var(--brand)] underline" /> —{" "}
+            {site.firm.description}.
+          </p>
+        </div>
         <CtaCard />
-      </div>
+      </section>
     </div>
   );
 }
