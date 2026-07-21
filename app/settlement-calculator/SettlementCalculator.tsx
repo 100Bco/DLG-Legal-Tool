@@ -125,7 +125,7 @@ export function SettlementCalculator() {
           </span>
           <div>
             <p className="text-sm font-bold text-slate-900">Value estimator</p>
-            <p className="text-xs text-slate-500">Multiplier method · Texas fault rules</p>
+            <p className="text-xs text-slate-600">Multiplier method · Texas fault rules</p>
           </div>
         </div>
 
@@ -182,11 +182,11 @@ export function SettlementCalculator() {
                   />
                   <span className="flex items-center justify-between">
                     <span className="font-bold text-slate-900">{s.label}</span>
-                    <span className="chip bg-slate-100 text-slate-500">
+                    <span className="chip bg-slate-100 text-slate-600">
                       {s.min}–{s.max}×
                     </span>
                   </span>
-                  <span className="mt-1 block text-xs text-slate-500">
+                  <span className="mt-1 block text-xs text-slate-600">
                     {s.description}
                   </span>
                 </label>
@@ -198,11 +198,11 @@ export function SettlementCalculator() {
             <legend className="text-sm font-semibold text-slate-800">
               What happened?
             </legend>
-            <p className="mt-0.5 text-xs text-slate-500">
+            <p className="mt-0.5 text-xs text-slate-600">
               Pick the closest description — you don&apos;t need to know an exact
               fault percentage.
             </p>
-            <div className="mt-2 space-y-2">
+            <div className="mt-2 grid gap-2 sm:grid-cols-2">
               {FAULT_OPTIONS.map((f, i) => (
                 <label
                   key={i}
@@ -222,7 +222,7 @@ export function SettlementCalculator() {
                   />
                   <span>
                     <span className="font-semibold text-slate-900">{f.label}</span>
-                    <span className="mt-0.5 block text-xs text-slate-500">
+                    <span className="mt-0.5 block text-xs text-slate-600">
                       {f.desc}
                     </span>
                   </span>
@@ -269,13 +269,13 @@ export function SettlementCalculator() {
               </p>
               <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-3">
                 <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
-                  <dt className="text-xs text-slate-500">Economic damages</dt>
+                  <dt className="text-xs text-slate-600">Economic damages</dt>
                   <dd className="mt-0.5 font-bold text-slate-900">
                     {formatUSD(result.economicDamages)}
                   </dd>
                 </div>
                 <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
-                  <dt className="text-xs text-slate-500">
+                  <dt className="text-xs text-slate-600">
                     Pain &amp; suffering ({result.severity.min}–{result.severity.max}×)
                   </dt>
                   <dd className="mt-0.5 font-bold text-slate-900">
@@ -283,7 +283,7 @@ export function SettlementCalculator() {
                   </dd>
                 </div>
                 <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
-                  <dt className="text-xs text-slate-500">Fault reduction</dt>
+                  <dt className="text-xs text-slate-600">Fault reduction</dt>
                   <dd className="mt-0.5 font-bold text-slate-900">
                     {result.faultPercent}%
                   </dd>
