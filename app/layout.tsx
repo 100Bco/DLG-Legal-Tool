@@ -49,9 +49,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  // Add real verification tokens when connecting Google Search Console, etc.
+  // Google Search Console site verification.
   verification: {
-    // google: "REPLACE_WITH_GSC_TOKEN",
+    google: "fFNx6Owajo3uP7KydJXFNTf2lQDLKyu9wKfHMgygwsQ",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
