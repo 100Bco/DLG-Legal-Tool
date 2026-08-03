@@ -25,18 +25,17 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Free, easy-to-use legal calculators for Texas personal-injury victims: check your filing deadline (statute of limitations) and estimate what your claim could be worth. Built by Dang Law Group.",
+    "Free, easy-to-use self-help calculators for Texas personal-injury claims: check your filing deadline (statute of limitations) and estimate what your claim could be worth.",
   applicationName: site.name,
-  authors: [{ name: site.firm.name, url: site.firm.url }],
-  creator: site.firm.name,
-  publisher: site.firm.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
   keywords: [
     "Texas statute of limitations",
     "personal injury deadline Texas",
     "settlement calculator",
     "car accident claim Texas",
     "how long to file injury claim Texas",
-    "Dang Law Group",
   ],
   robots: {
     index: true,
@@ -55,7 +54,6 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: "/dlg-logo.png",
   },
   category: "legal",
 };

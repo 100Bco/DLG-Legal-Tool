@@ -1,15 +1,15 @@
-import { Phone, ArrowRight, Scale } from "lucide-react";
+import { ArrowRight, Scale } from "lucide-react";
 import { site } from "@/lib/site";
-import { FirmLink } from "@/components/FirmLink";
 
 /**
- * DLG call-to-action. Per the brief, the CTA appears naturally *after* a
- * result — utility first, lead as a consequence. High-contrast navy card so it
- * stands out and invites the click, while staying low-pressure.
+ * Neutral call-to-action. ClaimValueCheck is an advertising service (not a law
+ * firm); a request may be routed to a participating attorney. No firm branding
+ * appears here — compliance disclosures live in the footer, with a short
+ * conspicuous note repeated at the CTA itself.
  */
 export function CtaCard({
   heading = "Want a real answer for your situation?",
-  body = "A calculator can only go so far. A free, no-obligation case review can confirm your actual deadline and options.",
+  body = "A calculator can only go so far. Get a free, no-obligation case review from a participating attorney to confirm your actual deadline and options.",
 }: {
   heading?: string;
   body?: string;
@@ -27,25 +27,19 @@ export function CtaCard({
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <a
-            href={site.firm.contactUrl}
+            href={site.reviewUrl}
             className="btn-urgent inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold"
           >
             Get a free case review
             <ArrowRight className="h-4 w-4" aria-hidden />
           </a>
-          <a
-            href={`tel:${site.firm.phone}`}
-            className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            Call {site.firm.name}
-          </a>
         </div>
-        <p className="mt-4 text-xs text-white/70">
-          Backed by the attorneys at{" "}
-          <FirmLink className="font-semibold text-white underline" /> ·
-          Contacting the firm does not create an attorney–client relationship
-          until a written agreement is signed.
+        <p className="mt-4 text-xs leading-relaxed text-white/70">
+          Paid attorney advertising. {site.name} is not a law firm and does not
+          provide legal advice. A request may be routed to a participating
+          attorney based on your location. Submitting a request does not create
+          an attorney–client relationship, and you are under no obligation to
+          hire any attorney.
         </p>
       </div>
     </section>

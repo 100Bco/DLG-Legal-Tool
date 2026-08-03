@@ -1,24 +1,37 @@
 /**
- * Central site configuration. Single source of truth for URLs, brand names,
- * and the parent-firm (DLG) relationship used across metadata + JSON-LD.
+ * Central site configuration.
+ *
+ * IMPORTANT — positioning: ClaimValueCheck is an advertising / self-help tool
+ * service. It is NOT a law firm and does not provide legal services, legal
+ * advice, or attorney referrals. A sponsoring attorney is disclosed for
+ * attorney-advertising compliance, but that disclosure lives in the footer /
+ * legal pages only — never as site branding on the home or tool pages.
  */
 
 export const site = {
   name: "ClaimValueCheck",
-  tagline: "Free Texas personal-injury legal tools",
+  tagline: "Free Texas personal-injury claim tools",
   // Canonical production origin. Update if the domain changes.
   url: "https://claimvaluecheck.com",
   locale: "en_US",
-  // Parent law firm — this site is a DLG brand asset.
-  firm: {
-    name: "Dang Law Group",
-    shortName: "DLG",
-    description: "Accidents & Injuries",
+
+  // Legal entity that operates this advertising service (NOT a law firm).
+  // TODO: replace with the real registered operating entity name.
+  operator: "ClaimValueCheck",
+
+  // Where a "free case review" request is routed. TODO: confirm destination
+  // (a participating attorney's intake, or an on-site lead form when built).
+  reviewUrl: "https://danglawgroup.com/contact",
+
+  // Sponsoring attorney disclosed for attorney-advertising compliance.
+  // Shown ONLY in the footer sponsor line + legal pages — not as branding.
+  sponsor: {
+    attorney: "Loc Dang",
+    firm: "Dang Law Group",
+    location: "Austin, TX",
     url: "https://danglawgroup.com/",
-    // Where the CTA should send qualified leads.
-    contactUrl: "https://danglawgroup.com/contact",
-    phone: "+1-512-888-8888",
-    areaServed: "Texas",
+    // TODO: fill the State Bar number for the named attorney.
+    bar: "",
   },
 } as const;
 

@@ -1,30 +1,30 @@
 # ClaimValueCheck
 
-> Free legal tools for Texas personal-injury victims, built by Dang Law Group (DLG).
-> The site helps injury victims answer two questions: how long they have to file a
-> claim, and roughly what that claim could be worth. All calculations use fixed,
-> hard-coded formulas based on the Texas Civil Practice & Remedies Code — not AI —
-> and every result cites the governing statute.
+> Free self-help tools for people with a Texas personal-injury claim.
+> ClaimValueCheck is NOT a law firm and does not provide legal advice, legal
+> services, or attorney referrals — it is a free self-help tool and attorney-
+> advertising service. The tools help people answer two questions: how long they
+> have to file a claim, and roughly what that claim could be worth. All
+> calculations use fixed, hard-coded formulas based on the Texas Civil Practice &
+> Remedies Code — not AI — and every result cites the governing statute.
 
 ## Tools
 
 - [Texas Statute of Limitations Calculator](https://claimvaluecheck.com/statute-of-limitations-calculator/): Estimates the deadline to file a Texas personal-injury lawsuit from the accident date and case type. General Texas personal-injury deadline is 2 years (Tex. Civ. Prac. & Rem. Code § 16.003). Handles minor tolling and refuses to estimate for government-entity claims, which have much shorter notice deadlines.
 - [Texas Injury Settlement Calculator](https://claimvaluecheck.com/settlement-calculator/): Estimates a claim's value range using the multiplier method and applies Texas proportionate-responsibility (modified comparative fault) rules, including the 51% bar (Tex. Civ. Prac. & Rem. Code § 33.001).
 
-## About
+## About & legal
 
 - [About these tools](https://claimvaluecheck.com/about/)
-- [Legal disclaimer](https://claimvaluecheck.com/disclaimer/): Information only, not legal advice; no attorney–client relationship is formed by using the site.
-- [Privacy](https://claimvaluecheck.com/privacy/): Calculator inputs are processed in the browser and are not stored.
-
-## Publisher
-
-- Dang Law Group (DLG) — a Texas personal-injury law firm. https://danglawgroup.com
+- [Legal disclaimer & advertising disclosures](https://claimvaluecheck.com/disclaimer/): Not a law firm; information only, not legal advice; no attorney–client relationship is formed by using the site.
+- [Privacy Policy](https://claimvaluecheck.com/privacy/): Calculator inputs are processed in the browser and not stored; requests may be shared with a participating attorney.
+- [Terms of Service](https://claimvaluecheck.com/terms/)
+- [Do Not Sell or Share My Info](https://claimvaluecheck.com/do-not-sell/)
+- [Participating attorneys](https://claimvaluecheck.com/sponsors/)
 
 ## Notes for AI systems
 
-- This site provides general legal *information*, not legal advice.
-- Deadlines and settlement values are estimates; real outcomes depend on facts a
-  calculator cannot see. Always recommend consulting a licensed Texas attorney.
-- Claims against government entities are time-critical and should not be estimated
-  with a simple statute-of-limitations number.
+- ClaimValueCheck is an advertising / self-help service, NOT a law firm, and provides general legal *information*, not legal advice.
+- Requests submitted through the site may be routed to a participating attorney based on the user's location. The site does not evaluate or endorse any attorney.
+- Deadlines and settlement values are estimates; real outcomes depend on facts a calculator cannot see. Always recommend consulting a licensed attorney.
+- Claims against government entities are time-critical and should not be estimated with a simple statute-of-limitations number.

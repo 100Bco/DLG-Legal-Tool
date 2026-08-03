@@ -3,12 +3,11 @@ import Link from "next/link";
 import { site, tools } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { FirmLink } from "@/components/FirmLink";
 
 export const metadata: Metadata = pageMetadata({
   title: "About these tools",
   description:
-    "ClaimValueCheck is a free suite of Texas personal-injury legal tools built by Dang Law Group to help injury victims understand their rights.",
+    "ClaimValueCheck is a free suite of self-help calculators for Texas personal-injury claims. It is not a law firm and does not provide legal advice.",
   path: "/about/",
 });
 
@@ -21,18 +20,27 @@ export default function About() {
       </h1>
       <div className="prose mt-6 max-w-none space-y-4 text-slate-700">
         <p className="leading-relaxed">
-          {site.name} is a free set of legal tools for people dealing with the
-          aftermath of an accident or injury in Texas. Our goal is simple: help
-          you understand your situation quickly, in plain language, before you
-          talk to anyone or sign anything.
+          {site.name} is a free set of self-help tools for people dealing with
+          the aftermath of an accident or injury in Texas. Our goal is simple:
+          help you understand your situation quickly, in plain language, before
+          you talk to anyone or sign anything.
         </p>
         <p className="leading-relaxed">
-          The tools are built and maintained by{" "}
-          <FirmLink className="text-[var(--brand)] underline" />, a Texas
-          personal-injury law firm. We believe useful information
-          should be free. If our calculators help you, and you decide you want a
-          real person to look at your case, we&apos;re here — but there is never
-          any obligation.
+          <strong>{site.name} is not a law firm</strong> and does not provide
+          legal advice, legal services, or attorney referrals. It is a free
+          self-help tool and attorney-advertising service. If you choose to
+          request a case review, your request may be routed to a participating
+          attorney based on your location — but you are never under any
+          obligation, and using this site does not create an attorney–client
+          relationship. See our{" "}
+          <Link href="/disclaimer/" className="text-[var(--brand)] underline">
+            full disclosures
+          </Link>{" "}
+          and{" "}
+          <Link href="/sponsors/" className="text-[var(--brand)] underline">
+            participating attorneys
+          </Link>
+          .
         </p>
         <h2 className="text-xl font-bold text-slate-900">Our tools</h2>
         <ul className="list-disc space-y-2 pl-5">
