@@ -1,22 +1,27 @@
 import Link from "next/link";
 import { site, tools } from "@/lib/site";
-import { FirmLink } from "@/components/FirmLink";
 
+/**
+ * Footer for a free informational self-help tool (not advertising, no lead
+ * capture). Carries a plain "not legal advice" disclaimer and links to the
+ * information pages.
+ */
 export function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="mt-16 border-t border-slate-200 bg-slate-50">
-      <div className="mx-auto max-w-5xl px-4 py-10 text-sm text-slate-600">
+      <div className="mx-auto max-w-5xl px-4 py-10 text-sm text-slate-700">
+        {/* --- Navigation --- */}
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
             <p className="font-bold text-[var(--brand)]">{site.name}</p>
-            <p className="mt-2 text-slate-500">{site.tagline}.</p>
-            <p className="mt-3 text-slate-500">
-              A free product of{" "}
-              <FirmLink className="font-medium text-[var(--brand)] underline" />.
+            <p className="mt-2 text-slate-600">{site.tagline}.</p>
+            <p className="mt-3 text-slate-600">
+              Free self-help tools — general information only.
             </p>
           </div>
           <div>
-            <p className="font-semibold text-slate-800">Tools</p>
+            <p className="font-semibold text-slate-900">Tools</p>
             <ul className="mt-2 space-y-1">
               {tools.map((t) => (
                 <li key={t.slug}>
@@ -28,7 +33,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="font-semibold text-slate-800">About</p>
+            <p className="font-semibold text-slate-900">Info</p>
             <ul className="mt-2 space-y-1">
               <li>
                 <Link href="/about/" className="hover:text-[var(--brand)]">
@@ -37,29 +42,38 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/disclaimer/" className="hover:text-[var(--brand)]">
-                  Legal disclaimer
+                  Disclaimer
                 </Link>
               </li>
               <li>
                 <Link href="/privacy/" className="hover:text-[var(--brand)]">
-                  Privacy
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <a href={site.firm.contactUrl} className="hover:text-[var(--brand)]">
-                  Contact {site.firm.name}
-                </a>
+                <Link href="/terms/" className="hover:text-[var(--brand)]">
+                  Terms of Use
+                </Link>
               </li>
             </ul>
           </div>
         </div>
-        <p className="mt-8 border-t border-slate-200 pt-6 text-xs leading-relaxed text-slate-500">
-          {site.name} provides general legal information and rough estimates for
-          educational purposes only. It is not legal advice, does not create an
-          attorney–client relationship, and should not replace consultation with
-          a licensed Texas attorney. &copy; {new Date().getFullYear()}{" "}
-          <FirmLink className="hover:text-[var(--brand)] hover:underline" />. All
-          rights reserved.
+
+        {/* --- Plain informational disclaimer (visible on-page) --- */}
+        <div className="mt-8 rounded-xl border border-slate-300 bg-white p-5">
+          <p className="text-xs leading-relaxed text-slate-600">
+            <strong className="text-slate-900">Not legal advice.</strong>{" "}
+            {site.name} provides free self-help tools and general legal
+            information for Texas personal-injury claims. It does not provide
+            legal advice or legal services. Results are approximate estimates and
+            may differ from your actual situation. Using this site does not create
+            an attorney–client relationship. For advice about your specific
+            situation, consult a licensed Texas attorney.
+          </p>
+        </div>
+
+        <p className="mt-6 text-xs text-slate-500">
+          &copy; {year} {site.name}. All rights reserved.
         </p>
       </div>
     </footer>

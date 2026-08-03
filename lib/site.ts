@@ -1,25 +1,17 @@
 /**
- * Central site configuration. Single source of truth for URLs, brand names,
- * and the parent-firm (DLG) relationship used across metadata + JSON-LD.
+ * Central site configuration.
+ *
+ * POSITIONING: ClaimValueCheck is a free self-help / informational tool for
+ * Texas personal-injury claims. It is not advertising, does not capture leads,
+ * and is not affiliated with any named law firm on the pages.
  */
 
 export const site = {
   name: "ClaimValueCheck",
-  tagline: "Free Texas personal-injury legal tools",
+  tagline: "Free Texas personal-injury claim tools",
   // Canonical production origin. Update if the domain changes.
   url: "https://claimvaluecheck.com",
   locale: "en_US",
-  // Parent law firm — this site is a DLG brand asset.
-  firm: {
-    name: "Dang Law Group",
-    shortName: "DLG",
-    description: "Accidents & Injuries",
-    url: "https://danglawgroup.com/",
-    // Where the CTA should send qualified leads.
-    contactUrl: "https://danglawgroup.com/contact",
-    phone: "+1-512-888-8888",
-    areaServed: "Texas",
-  },
 } as const;
 
 /** Absolute URL helper for canonical tags, sitemaps, and JSON-LD. */

@@ -1,15 +1,13 @@
-import { Phone, ArrowRight, Scale } from "lucide-react";
-import { site } from "@/lib/site";
-import { FirmLink } from "@/components/FirmLink";
+import { Scale } from "lucide-react";
 
 /**
- * DLG call-to-action. Per the brief, the CTA appears naturally *after* a
- * result — utility first, lead as a consequence. High-contrast navy card so it
- * stands out and invites the click, while staying low-pressure.
+ * Neutral closing note for an informational tool. This is NOT advertising and
+ * does not collect leads — it simply reminds the reader that the result is an
+ * estimate and points them to a licensed attorney for real advice.
  */
 export function CtaCard({
-  heading = "Want a real answer for your situation?",
-  body = "A calculator can only go so far. A free, no-obligation case review can confirm your actual deadline and options.",
+  heading = "This is an estimate — not legal advice",
+  body = "Deadlines and case values depend on details a calculator can't see. To understand your specific situation, talk to a licensed Texas attorney.",
 }: {
   heading?: string;
   body?: string;
@@ -24,28 +22,6 @@ export function CtaCard({
         <h2 className="mt-4 text-xl font-bold sm:text-2xl">{heading}</h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/85">
           {body}
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <a
-            href={site.firm.contactUrl}
-            className="btn-urgent inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold"
-          >
-            Get a free case review
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
-          <a
-            href={`tel:${site.firm.phone}`}
-            className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/25 transition hover:bg-white/15"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            Call {site.firm.name}
-          </a>
-        </div>
-        <p className="mt-4 text-xs text-white/70">
-          Backed by the attorneys at{" "}
-          <FirmLink className="font-semibold text-white underline" /> ·
-          Contacting the firm does not create an attorney–client relationship
-          until a written agreement is signed.
         </p>
       </div>
     </section>

@@ -43,20 +43,18 @@ export function pageMetadata(opts: {
 /* ------------------------------------------------------------------ */
 
 export function organizationSchema() {
+  // Neutral brand entity for the tool site (firm branding stays off-page).
   return {
     "@context": "https://schema.org",
-    "@type": "LegalService",
-    name: site.firm.name,
-    alternateName: site.firm.shortName,
-    description: `${site.firm.name} — ${site.firm.description}. Provider of the free ClaimValueCheck Texas personal-injury legal tools.`,
-    url: site.firm.url,
-    telephone: site.firm.phone,
-    areaServed: { "@type": "State", name: "Texas" },
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+    description: `${site.name} offers free self-help calculators for Texas personal-injury claims.`,
     knowsAbout: [
-      "Texas personal injury law",
+      "Texas personal injury claims",
       "Statute of limitations",
       "Car accident claims",
-      "Injury settlement valuation",
+      "Injury settlement estimates",
     ],
   };
 }
@@ -67,11 +65,11 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: site.name,
     url: site.url,
-    description: `${site.tagline}. ${site.name} is a free tool suite by ${site.firm.name}.`,
+    description: `${site.tagline}. Free self-help calculators for Texas personal-injury claims.`,
     publisher: {
       "@type": "Organization",
-      name: site.firm.name,
-      url: site.firm.url,
+      name: site.name,
+      url: site.url,
     },
     inLanguage: "en-US",
   };
@@ -95,8 +93,8 @@ export function webApplicationSchema(opts: {
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     provider: {
       "@type": "Organization",
-      name: site.firm.name,
-      url: site.firm.url,
+      name: site.name,
+      url: site.url,
     },
     inLanguage: "en-US",
   };

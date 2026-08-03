@@ -4,7 +4,7 @@
 /* DLG brand palette + urgency accents                                 */
 /* ------------------------------------------------------------------ */
 :root {
-  --brand: #1e2b63; /* Dang Law Group navy */
+  --brand: #1e2b63; /* brand navy */
   --brand-2: #2f3f8f; /* lighter navy */
   --brand-3: #4658b5; /* highlight navy */
   --urgent: #e11d48; /* rose — deadlines / act now */

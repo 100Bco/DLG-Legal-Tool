@@ -26,7 +26,7 @@ export default function OgImage() {
         }}
       >
         <div style={{ fontSize: 30, opacity: 0.85, letterSpacing: 2 }}>
-          BY DANG LAW GROUP
+          FREE SELF-HELP TOOLS
         </div>
         <div
           style={{
