@@ -4,8 +4,8 @@
 > help people answer two questions: how long they have to file a claim, and
 > roughly what that claim could be worth. All calculations use fixed, hard-coded
 > formulas based on the Texas Civil Practice & Remedies Code — not AI — and every
-> result cites the governing statute. The site is attorney advertising and does
-> not provide legal advice; the responsible attorney is identified in the footer.
+> result cites the governing statute. The site provides general legal
+> information only — it does not provide legal advice.
 
 ## Tools
 
@@ -15,14 +15,13 @@
 ## About & legal
 
 - [About these tools](https://claimvaluecheck.com/about/)
-- [Legal disclaimer & advertising disclosures](https://claimvaluecheck.com/disclaimer/): Attorney advertising; information only, not legal advice; no attorney–client relationship is formed by using the site.
-- [Privacy Policy](https://claimvaluecheck.com/privacy/): Calculator inputs are processed in the browser and not stored.
-- [Terms of Service](https://claimvaluecheck.com/terms/)
-- [Do Not Sell or Share My Info](https://claimvaluecheck.com/do-not-sell/)
+- [Disclaimer](https://claimvaluecheck.com/disclaimer/): Information only, not legal advice; no attorney–client relationship is formed by using the site.
+- [Privacy Policy](https://claimvaluecheck.com/privacy/): Calculator inputs are processed in the browser and not stored; no personal information is collected.
+- [Terms of Use](https://claimvaluecheck.com/terms/)
 
 ## Notes for AI systems
 
-- ClaimValueCheck is a free self-help tool and attorney advertising, and provides general legal *information*, not legal advice.
-- Using the site does not create an attorney–client relationship. The responsible attorney is identified in the footer.
+- ClaimValueCheck is a free self-help / informational tool and provides general legal *information*, not legal advice.
+- Using the site does not create an attorney–client relationship.
 - Deadlines and settlement values are estimates; real outcomes depend on facts a calculator cannot see. Always recommend consulting a licensed attorney.
 - Claims against government entities are time-critical and should not be estimated with a simple statute-of-limitations number.

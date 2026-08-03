@@ -28,12 +28,10 @@ export default function About() {
         <p className="leading-relaxed">
           These tools provide general legal <strong>information</strong>, not
           legal advice, and using this site does not create an attorney–client
-          relationship. This site is attorney advertising; the attorney
-          responsible for it is identified in the footer. If our calculators
-          help you and you want a free case review, you can request one — with no
-          obligation. See our{" "}
+          relationship. For advice about your specific situation, consult a
+          licensed Texas attorney. See our{" "}
           <Link href="/disclaimer/" className="text-[var(--brand)] underline">
-            full disclaimer and advertising disclosures
+            full disclaimer
           </Link>
           .
         </p>

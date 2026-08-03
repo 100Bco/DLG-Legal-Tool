@@ -1,15 +1,13 @@
-import { ArrowRight, Scale } from "lucide-react";
-import { site } from "@/lib/site";
+import { Scale } from "lucide-react";
 
 /**
- * Call-to-action. This is attorney advertising for the sponsoring firm, but the
- * firm is not named here (branding stays off the home/tool pages) — the
- * responsible-attorney disclosure lives in the footer, with a short conspicuous
- * advertising note repeated at the CTA itself.
+ * Neutral closing note for an informational tool. This is NOT advertising and
+ * does not collect leads — it simply reminds the reader that the result is an
+ * estimate and points them to a licensed attorney for real advice.
  */
 export function CtaCard({
-  heading = "Want a real answer for your situation?",
-  body = "A calculator can only go so far. Get a free, no-obligation case review from an experienced Texas injury attorney to confirm your actual deadline and options.",
+  heading = "This is an estimate — not legal advice",
+  body = "Deadlines and case values depend on details a calculator can't see. To understand your specific situation, talk to a licensed Texas attorney.",
 }: {
   heading?: string;
   body?: string;
@@ -24,21 +22,6 @@ export function CtaCard({
         <h2 className="mt-4 text-xl font-bold sm:text-2xl">{heading}</h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/85">
           {body}
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <a
-            href={site.reviewUrl}
-            className="btn-urgent inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-bold"
-          >
-            Get a free case review
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
-        </div>
-        <p className="mt-4 text-xs leading-relaxed text-white/70">
-          Attorney advertising. This is not legal advice. Contacting the firm
-          does not create an attorney–client relationship, and you are under no
-          obligation to hire any attorney. Prior results do not guarantee a
-          similar outcome.
         </p>
       </div>
     </section>

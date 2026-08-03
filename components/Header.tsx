@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Scale, ShieldCheck, ArrowRight } from "lucide-react";
+import { Scale, ShieldCheck } from "lucide-react";
 import { site, tools } from "@/lib/site";
 
 export function Header() {
@@ -17,32 +17,25 @@ export function Header() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-3 sm:gap-5">
           <nav
             aria-label="Primary"
-            className="hidden gap-1 text-sm font-medium text-slate-700 md:flex"
+            className="flex gap-1 text-sm font-medium text-slate-700"
           >
             {tools.map((t) => (
               <Link
                 key={t.slug}
                 href={`/${t.slug}/`}
-                className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-[var(--brand)]"
+                className="rounded-lg px-2.5 py-2 hover:bg-slate-100 hover:text-[var(--brand)] sm:px-3"
               >
                 {t.shortName}
               </Link>
             ))}
           </nav>
-          <span className="hidden items-center gap-1.5 text-xs font-semibold text-emerald-700 lg:flex">
+          <span className="hidden items-center gap-1.5 text-xs font-semibold text-emerald-700 sm:flex">
             <ShieldCheck className="h-4 w-4" aria-hidden />
             Free tool
           </span>
-          <a
-            href={site.reviewUrl}
-            className="btn-brand inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold sm:px-4"
-          >
-            Free case review
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </a>
         </div>
       </div>
     </header>

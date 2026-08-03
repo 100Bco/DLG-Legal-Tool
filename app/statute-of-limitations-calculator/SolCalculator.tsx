@@ -274,10 +274,10 @@ export function SolCalculator() {
               result.outcome === "government"
                 ? "Government deadlines are short — talk to a lawyer now"
                 : result.outcome === "attorney"
-                  ? "This one needs a lawyer — get a free review"
+                  ? "This one is fact-specific — talk to a licensed attorney"
                   : result.urgency === "critical" || result.outcome === "expired"
-                    ? "Time may be running out — get a free review today"
-                    : "Confirm your real deadline with a free case review"
+                    ? "Time may be running out — talk to a licensed attorney"
+                    : "This is an estimate — not legal advice"
             }
           />
         </div>

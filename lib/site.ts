@@ -1,13 +1,9 @@
 /**
  * Central site configuration.
  *
- * POSITIONING: ClaimValueCheck is a free self-help tool and the ATTORNEY
- * ADVERTISING of a sponsoring law firm. No firm is named as branding on the
- * home/tool pages. The responsible attorney is disclosed in the footer
- * "Attorney Advertising" block (configure `firm` below) where advertising
- * rules require the responsible attorney to be identified.
- *
- * This is NOT a neutral lead-generation / attorney-matching service.
+ * POSITIONING: ClaimValueCheck is a free self-help / informational tool for
+ * Texas personal-injury claims. It is not advertising, does not capture leads,
+ * and is not affiliated with any named law firm on the pages.
  */
 
 export const site = {
@@ -16,25 +12,6 @@ export const site = {
   // Canonical production origin. Update if the domain changes.
   url: "https://claimvaluecheck.com",
   locale: "en_US",
-
-  // Where a "free case review" request is routed.
-  // TODO: set the real intake/contact URL before launch (currently a
-  // placeholder so no external firm is linked).
-  reviewUrl: "#",
-
-  // The law firm responsible for this attorney advertising. Disclosed in the
-  // footer only — never as branding on the home/tool pages. Left blank on
-  // purpose so no firm is named until configured.
-  // TODO (REQUIRED BEFORE LAUNCH): attorney-advertising rules generally require
-  // naming the responsible attorney. Fill these in before going live, or the
-  // footer omits the identification line.
-  firm: {
-    attorney: "",
-    name: "",
-    location: "",
-    url: "",
-    bar: "",
-  },
 } as const;
 
 /** Absolute URL helper for canonical tags, sitemaps, and JSON-LD. */

@@ -294,7 +294,7 @@ export function SettlementCalculator() {
 
           <NotesBlock title="How this was estimated" notes={result.notes} />
           <Disclaimer />
-          <CtaCard heading="Find out what your claim is really worth" />
+          <CtaCard heading="This is a rough estimate — not legal advice" />
         </div>
       )}
 
@@ -313,7 +313,7 @@ export function SettlementCalculator() {
           </section>
           <NotesBlock title="Why" notes={result.notes} />
           <Disclaimer />
-          <CtaCard heading="Think the fault split is wrong? Get a second opinion" />
+          <CtaCard heading="Fault is complex — talk to a licensed attorney" />
         </div>
       )}
 

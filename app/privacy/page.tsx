@@ -23,9 +23,8 @@ export default function Privacy() {
       <div className="prose mt-6 max-w-none space-y-4 text-slate-700">
         <p className="leading-relaxed">
           This Privacy Policy explains how {site.name} (&ldquo;we&rdquo;)
-          collects, uses, and shares information. {site.name} offers free
-          self-help tools and is attorney advertising for the firm identified in
-          the footer.
+          collects, uses, and protects information. {site.name} offers free
+          self-help tools and general legal information.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">Calculations stay in your browser</h2>
@@ -35,12 +34,10 @@ export default function Privacy() {
           details to a server and we do not store them.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">Information you submit</h2>
+        <h2 className="text-xl font-bold text-slate-900">We don&apos;t collect your case details</h2>
         <p className="leading-relaxed">
-          If you choose to request a case review, you may provide contact details
-          such as your name, phone number, and email. That information is used so
-          the firm can contact you about your potential claim. We do not sell
-          your personal information.
+          The tools do not ask you to create an account or submit personal
+          information, and we do not sell any personal information.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">Analytics</h2>
@@ -50,18 +47,6 @@ export default function Privacy() {
           identify you personally.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">Your choices &amp; rights</h2>
-        <p className="leading-relaxed">
-          Depending on where you live, you may have the right to access, correct,
-          or delete your personal information, and to opt out of its sale or
-          sharing. To opt out, use our{" "}
-          <Link href="/do-not-sell/" className="text-[var(--brand)] underline">
-            Do Not Sell or Share My Info
-          </Link>{" "}
-          page. We honor recognized opt-out signals such as Global Privacy
-          Control (GPC) where required by law.
-        </p>
-
         <h2 className="text-xl font-bold text-slate-900">Cookies</h2>
         <p className="leading-relaxed">
           We use only the cookies necessary to run the Site and, where enabled,
@@ -69,11 +54,11 @@ export default function Privacy() {
         </p>
 
         <p className="leading-relaxed">
-          Questions about privacy? See our{" "}
+          See also our{" "}
           <Link href="/terms/" className="text-[var(--brand)] underline">
-            Terms of Service
-          </Link>{" "}
-          or contact us through the Site.
+            Terms of Use
+          </Link>
+          .
         </p>
       </div>
     </div>

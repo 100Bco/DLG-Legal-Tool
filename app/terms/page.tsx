@@ -25,12 +25,12 @@ export default function Terms() {
           these Terms. If you do not agree, do not use the Site.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">1. Attorney advertising, not legal advice</h2>
+        <h2 className="text-xl font-bold text-slate-900">1. Not legal advice</h2>
         <p className="leading-relaxed">
           The Site provides free self-help tools and general legal information.
-          It is attorney advertising and <strong>not legal advice</strong>.
-          Nothing on the Site is legal advice, and using the Site does not create
-          an attorney–client relationship.
+          It does not provide legal advice or legal services.{" "}
+          <strong>Nothing on the Site is legal advice</strong>, and using the
+          Site does not create an attorney–client relationship.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">2. Self-help tools are estimates</h2>
@@ -42,23 +42,15 @@ export default function Terms() {
           protect your legal rights.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">3. Requesting a case review</h2>
-        <p className="leading-relaxed">
-          If you submit a request, the firm may use your contact details to
-          reach you about your potential claim. You are under no obligation to
-          hire any attorney, and no attorney–client relationship is formed unless
-          and until you sign a written agreement.
-        </p>
-
-        <h2 className="text-xl font-bold text-slate-900">4. No warranty</h2>
+        <h2 className="text-xl font-bold text-slate-900">3. No warranty</h2>
         <p className="leading-relaxed">
           The Site is provided &ldquo;as is&rdquo; without warranties of any
-          kind. To the fullest extent permitted by law, {site.name} and its
-          operator disclaim all warranties and are not liable for any damages
-          arising from your use of the Site.
+          kind. To the fullest extent permitted by law, {site.name} disclaims all
+          warranties and is not liable for any damages arising from your use of
+          the Site.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">5. Changes</h2>
+        <h2 className="text-xl font-bold text-slate-900">4. Changes</h2>
         <p className="leading-relaxed">
           We may update these Terms at any time. Continued use of the Site after
           changes take effect constitutes acceptance of the revised Terms.
