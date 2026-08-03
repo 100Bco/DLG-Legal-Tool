@@ -2,10 +2,10 @@
  * Central site configuration.
  *
  * POSITIONING: ClaimValueCheck is a free self-help tool and the ATTORNEY
- * ADVERTISING of the sponsoring law firm (Dang Law Group). The firm is not
- * shown as branding on the home/tool pages — it is disclosed in the footer
- * "Attorney Advertising" block and legal pages, where advertising rules
- * require the responsible attorney to be identified.
+ * ADVERTISING of a sponsoring law firm. No firm is named as branding on the
+ * home/tool pages. The responsible attorney is disclosed in the footer
+ * "Attorney Advertising" block (configure `firm` below) where advertising
+ * rules require the responsible attorney to be identified.
  *
  * This is NOT a neutral lead-generation / attorney-matching service.
  */
@@ -17,18 +17,22 @@ export const site = {
   url: "https://claimvaluecheck.com",
   locale: "en_US",
 
-  // Where a "free case review" request is routed (the sponsoring firm's intake).
-  reviewUrl: "https://danglawgroup.com/contact",
+  // Where a "free case review" request is routed.
+  // TODO: set the real intake/contact URL before launch (currently a
+  // placeholder so no external firm is linked).
+  reviewUrl: "#",
 
   // The law firm responsible for this attorney advertising. Disclosed in the
-  // footer + legal pages only — never as branding on the home/tool pages.
+  // footer only — never as branding on the home/tool pages. Left blank on
+  // purpose so no firm is named until configured.
+  // TODO (REQUIRED BEFORE LAUNCH): attorney-advertising rules generally require
+  // naming the responsible attorney. Fill these in before going live, or the
+  // footer omits the identification line.
   firm: {
-    attorney: "Loc Dang",
-    name: "Dang Law Group",
-    location: "Austin, TX",
-    url: "https://danglawgroup.com/",
-    // TODO: fill the responsible attorney's State Bar number + principal office
-    // address if required by the applicable attorney-advertising rules.
+    attorney: "",
+    name: "",
+    location: "",
+    url: "",
     bar: "",
   },
 } as const;

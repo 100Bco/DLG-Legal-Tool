@@ -99,12 +99,14 @@ export function Footer() {
               <strong>attorney&apos;s fees only</strong>; you may still be
               responsible for case costs and expenses.
             </p>
-            {/* Responsible-attorney identification — required for attorney advertising. */}
+            {/* Responsible-attorney identification — required for attorney
+                advertising. Renders only when a firm is configured in
+                lib/site.ts; otherwise a generic notice is shown. */}
             <p className="pt-1 text-slate-700">
-              This is attorney advertising. {site.firm.attorney},{" "}
-              {site.firm.name}, {site.firm.location}
-              {site.firm.bar ? ` (State Bar No. ${site.firm.bar})` : ""} is
-              responsible for its content.
+              This is attorney advertising.
+              {site.firm.name
+                ? ` ${site.firm.attorney ? `${site.firm.attorney}, ` : ""}${site.firm.name}, ${site.firm.location}${site.firm.bar ? ` (State Bar No. ${site.firm.bar})` : ""} is responsible for its content.`
+                : ""}
             </p>
           </div>
         </div>
