@@ -89,14 +89,29 @@ export default function Page() {
           How the multiplier method works
         </h2>
         <p className="mt-3 leading-relaxed text-slate-700">
-          Personal-injury damages fall into two buckets.{" "}
-          <strong>Economic damages</strong> are your measurable losses: medical
-          bills, lost wages, and other out-of-pocket costs.{" "}
-          <strong>Non-economic damages</strong> — pain, suffering, and loss of
-          enjoyment of life — are harder to measure. The multiplier method
-          estimates non-economic damages by multiplying your economic damages by
-          a factor (commonly 1.5&times; for minor injuries up to 5&times; for
-          severe, permanent injuries), then adds the two together.
+          Personal-injury damages fall into two buckets:
+        </p>
+        <ul className="mt-3 space-y-2 text-slate-700">
+          <li className="flex gap-2.5">
+            <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-3)]" />
+            <span>
+              <strong>Economic damages</strong> — your measurable losses: medical
+              bills, lost wages, and other out-of-pocket costs.
+            </span>
+          </li>
+          <li className="flex gap-2.5">
+            <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-3)]" />
+            <span>
+              <strong>Non-economic damages</strong> — pain, suffering, and loss
+              of enjoyment of life, which are harder to measure.
+            </span>
+          </li>
+        </ul>
+        <p className="mt-3 leading-relaxed text-slate-700">
+          The multiplier method estimates non-economic damages by multiplying
+          your economic damages by a factor (commonly 1.5&times; for minor
+          injuries up to 5&times; for severe, permanent injuries), then adds the
+          two together.
         </p>
         <p className="mt-3 leading-relaxed text-slate-700">
           In Texas, your result is then adjusted for fault. Under{" "}
