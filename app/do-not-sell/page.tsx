@@ -30,10 +30,11 @@ export default function DoNotSell() {
       </h1>
       <div className="prose mt-6 max-w-none space-y-4 text-slate-700">
         <p className="leading-relaxed">
-          If you are a California resident (or a resident of a state with similar
-          rights), you may request that {site.name} not sell or share your
-          personal information, as those terms are defined under the California
-          Consumer Privacy Act (CCPA/CPRA) and similar laws.
+          {site.name} does not sell your personal information. If you are a
+          California resident (or a resident of a state with similar rights), you
+          may still request that we not sell or share your personal information,
+          as those terms are defined under the California Consumer Privacy Act
+          (CCPA/CPRA) and similar laws.
         </p>
 
         <div className="rounded-xl border border-slate-300 bg-white p-5 not-prose">

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMetadata({
   title: "Legal disclaimer",
   description:
-    "ClaimValueCheck is a free self-help tool and attorney-advertising service. It is not a law firm, does not give legal advice, and creates no attorney–client relationship.",
+    "ClaimValueCheck is a free self-help tool and attorney advertising. It does not give legal advice and creates no attorney–client relationship.",
   path: "/disclaimer/",
 });
 
@@ -22,10 +22,10 @@ export default function DisclaimerPage() {
       </h1>
       <div className="prose mt-6 max-w-none space-y-4 text-slate-700">
         <p className="leading-relaxed">
-          <strong>Paid attorney advertising.</strong> {site.name} is an
-          advertising and self-help tool service. It is{" "}
-          <strong>not a law firm</strong> and does not provide legal advice,
-          legal services, or attorney referrals.
+          <strong>Attorney advertising.</strong> This Site is attorney
+          advertising. It provides free self-help tools and general legal
+          information — it is <strong>not legal advice</strong>. The attorney
+          responsible for this advertising is identified in the footer.
         </p>
         <p className="leading-relaxed">
           <strong>Not legal advice.</strong> The tools, calculators, and content
@@ -35,21 +35,10 @@ export default function DisclaimerPage() {
         </p>
         <p className="leading-relaxed">
           <strong>No attorney–client relationship.</strong> Using this Site, or
-          submitting a request through it, does not create an attorney–client
+          contacting the firm through it, does not create an attorney–client
           relationship. That relationship is formed only through a signed,
-          written engagement agreement with an attorney you choose.
-        </p>
-        <p className="leading-relaxed">
-          <strong>How requests are handled.</strong> If you submit a request,
-          your information may be routed to a participating attorney or law firm
-          based on your location so they can contact you. {site.name} does not
-          evaluate, endorse, recommend, or guarantee any attorney, and no
-          attorney is selected based on the merits of your matter. You are under
-          no obligation to hire anyone. See the{" "}
-          <Link href="/sponsors/" className="text-[var(--brand)] underline">
-            participating attorneys
-          </Link>
-          .
+          written engagement agreement. You are under no obligation to hire any
+          attorney.
         </p>
         <p className="leading-relaxed">
           <strong>Estimates only.</strong> Deadlines, settlement figures, and
@@ -67,7 +56,7 @@ export default function DisclaimerPage() {
         </p>
         <p className="leading-relaxed">
           <strong>Fees.</strong> &ldquo;No fee unless you win,&rdquo; if offered
-          by a participating attorney, refers to attorney&apos;s fees only; you
+          by the firm, refers to attorney&apos;s fees only; you
           may still be responsible for case costs and expenses.
         </p>
         <p className="leading-relaxed">

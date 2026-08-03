@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMetadata({
   title: "Terms of Service",
   description:
-    "The terms governing your use of ClaimValueCheck, a free self-help tool and attorney-advertising service (not a law firm).",
+    "The terms governing your use of ClaimValueCheck, a free self-help tool for Texas personal-injury claims.",
   path: "/terms/",
 });
 
@@ -25,13 +25,12 @@ export default function Terms() {
           these Terms. If you do not agree, do not use the Site.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">1. Not a law firm</h2>
+        <h2 className="text-xl font-bold text-slate-900">1. Attorney advertising, not legal advice</h2>
         <p className="leading-relaxed">
-          {site.name} is an advertising and self-help tool service. It is{" "}
-          <strong>not a law firm</strong> and does not provide legal advice,
-          legal services, or attorney referrals. Nothing on the Site is legal
-          advice, and using the Site does not create an attorney–client
-          relationship.
+          The Site provides free self-help tools and general legal information.
+          It is attorney advertising and <strong>not legal advice</strong>.
+          Nothing on the Site is legal advice, and using the Site does not create
+          an attorney–client relationship.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">2. Self-help tools are estimates</h2>
@@ -43,12 +42,12 @@ export default function Terms() {
           protect your legal rights.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">3. Requests and routing</h2>
+        <h2 className="text-xl font-bold text-slate-900">3. Requesting a case review</h2>
         <p className="leading-relaxed">
-          If you submit a request, your information may be shared with a
-          participating attorney or law firm based on your location so they may
-          contact you. {site.name} does not evaluate, endorse, or guarantee any
-          attorney, and you are under no obligation to hire anyone.
+          If you submit a request, the firm may use your contact details to
+          reach you about your potential claim. You are under no obligation to
+          hire any attorney, and no attorney–client relationship is formed unless
+          and until you sign a written agreement.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">4. No warranty</h2>

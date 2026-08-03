@@ -43,14 +43,13 @@ export function pageMetadata(opts: {
 /* ------------------------------------------------------------------ */
 
 export function organizationSchema() {
-  // Neutral organization — an advertising / self-help tool service, NOT a law
-  // firm. We intentionally do NOT use LegalService here.
+  // Neutral brand entity for the tool site (firm branding stays off-page).
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    description: `${site.name} is a free self-help tool and attorney-advertising service for Texas personal-injury claims. It is not a law firm and does not provide legal advice.`,
+    description: `${site.name} offers free self-help calculators for Texas personal-injury claims.`,
     knowsAbout: [
       "Texas personal injury claims",
       "Statute of limitations",

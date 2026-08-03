@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMetadata({
   title: "About these tools",
   description:
-    "ClaimValueCheck is a free suite of self-help calculators for Texas personal-injury claims. It is not a law firm and does not provide legal advice.",
+    "ClaimValueCheck is a free suite of self-help calculators for Texas personal-injury claims, with results cited to the Texas statutes.",
   path: "/about/",
 });
 
@@ -26,19 +26,14 @@ export default function About() {
           you talk to anyone or sign anything.
         </p>
         <p className="leading-relaxed">
-          <strong>{site.name} is not a law firm</strong> and does not provide
-          legal advice, legal services, or attorney referrals. It is a free
-          self-help tool and attorney-advertising service. If you choose to
-          request a case review, your request may be routed to a participating
-          attorney based on your location — but you are never under any
-          obligation, and using this site does not create an attorney–client
-          relationship. See our{" "}
+          These tools provide general legal <strong>information</strong>, not
+          legal advice, and using this site does not create an attorney–client
+          relationship. This site is attorney advertising; the attorney
+          responsible for it is identified in the footer. If our calculators
+          help you and you want a free case review, you can request one — with no
+          obligation. See our{" "}
           <Link href="/disclaimer/" className="text-[var(--brand)] underline">
-            full disclosures
-          </Link>{" "}
-          and{" "}
-          <Link href="/sponsors/" className="text-[var(--brand)] underline">
-            participating attorneys
+            full disclaimer and advertising disclosures
           </Link>
           .
         </p>

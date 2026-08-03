@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privacy/", priority: 0.3, changeFrequency: "yearly" },
     { path: "/terms/", priority: 0.3, changeFrequency: "yearly" },
     { path: "/do-not-sell/", priority: 0.3, changeFrequency: "yearly" },
-    { path: "/sponsors/", priority: 0.3, changeFrequency: "yearly" },
   ];
 
   const toolPages = tools.map((t) => ({

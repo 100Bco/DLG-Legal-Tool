@@ -1,11 +1,13 @@
 /**
  * Central site configuration.
  *
- * IMPORTANT — positioning: ClaimValueCheck is an advertising / self-help tool
- * service. It is NOT a law firm and does not provide legal services, legal
- * advice, or attorney referrals. A sponsoring attorney is disclosed for
- * attorney-advertising compliance, but that disclosure lives in the footer /
- * legal pages only — never as site branding on the home or tool pages.
+ * POSITIONING: ClaimValueCheck is a free self-help tool and the ATTORNEY
+ * ADVERTISING of the sponsoring law firm (Dang Law Group). The firm is not
+ * shown as branding on the home/tool pages — it is disclosed in the footer
+ * "Attorney Advertising" block and legal pages, where advertising rules
+ * require the responsible attorney to be identified.
+ *
+ * This is NOT a neutral lead-generation / attorney-matching service.
  */
 
 export const site = {
@@ -15,22 +17,18 @@ export const site = {
   url: "https://claimvaluecheck.com",
   locale: "en_US",
 
-  // Legal entity that operates this advertising service (NOT a law firm).
-  // TODO: replace with the real registered operating entity name.
-  operator: "ClaimValueCheck",
-
-  // Where a "free case review" request is routed. TODO: confirm destination
-  // (a participating attorney's intake, or an on-site lead form when built).
+  // Where a "free case review" request is routed (the sponsoring firm's intake).
   reviewUrl: "https://danglawgroup.com/contact",
 
-  // Sponsoring attorney disclosed for attorney-advertising compliance.
-  // Shown ONLY in the footer sponsor line + legal pages — not as branding.
-  sponsor: {
+  // The law firm responsible for this attorney advertising. Disclosed in the
+  // footer + legal pages only — never as branding on the home/tool pages.
+  firm: {
     attorney: "Loc Dang",
-    firm: "Dang Law Group",
+    name: "Dang Law Group",
     location: "Austin, TX",
     url: "https://danglawgroup.com/",
-    // TODO: fill the State Bar number for the named attorney.
+    // TODO: fill the responsible attorney's State Bar number + principal office
+    // address if required by the applicable attorney-advertising rules.
     bar: "",
   },
 } as const;

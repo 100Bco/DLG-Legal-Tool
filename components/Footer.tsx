@@ -2,18 +2,17 @@ import Link from "next/link";
 import { site, tools } from "@/lib/site";
 
 /**
- * Compliance footer for a paid attorney-advertising / self-help tool service.
+ * Footer for a single-firm attorney-advertising microsite.
  *
- * NOTE FOR REVIEW: the disclosures below follow common attorney-advertising
- * requirements, but the exact wording, the named-sponsor details, and which
- * items your jurisdiction requires MUST be confirmed by your advertising-
- * compliance attorney before launch. Placeholders are marked in lib/site.ts.
+ * NOTE FOR REVIEW: these disclosures follow common attorney-advertising rules,
+ * but the exact wording and which items apply MUST be confirmed by the firm's
+ * advertising-compliance counsel before launch. Firm details / bar number are
+ * placeholders in lib/site.ts.
  *
- * Conspicuous, on-page (not hidden behind a link): paid attorney advertising,
- * not-a-law-firm, no attorney–client relationship, matching/routing disclosure,
- * results disclaimers, "no fee" meaning, and no obligation to retain.
- * Behind links: Privacy Policy, Terms of Service, Do Not Sell My Info (CCPA
- * opt-out), and the full participating-attorney listing.
+ * Conspicuous, on-page (not behind a link): "Attorney Advertising", not legal
+ * advice, no attorney–client relationship, results disclaimers, "no fee"
+ * meaning, no obligation, and the responsible attorney/firm identification.
+ * Behind links: Privacy Policy, Terms of Service, Do Not Sell or Share My Info.
  */
 export function Footer() {
   const year = new Date().getFullYear();
@@ -26,7 +25,7 @@ export function Footer() {
             <p className="font-bold text-[var(--brand)]">{site.name}</p>
             <p className="mt-2 text-slate-600">{site.tagline}.</p>
             <p className="mt-3 text-slate-600">
-              Free self-help tools — not a law firm.
+              Free self-help tools for injury claims.
             </p>
           </div>
           <div>
@@ -60,13 +59,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/sponsors/" className="hover:text-[var(--brand)]">
-                  Participating attorneys
-                </Link>
-              </li>
-              <li>
                 <Link href="/disclaimer/" className="hover:text-[var(--brand)]">
-                  Full disclaimer
+                  Disclaimer &amp; advertising
                 </Link>
               </li>
               <li>
@@ -81,23 +75,15 @@ export function Footer() {
         {/* --- Conspicuous advertising disclosures (visible on-page) --- */}
         <div className="mt-8 rounded-xl border border-slate-300 bg-white p-5">
           <p className="text-xs font-bold uppercase tracking-wide text-slate-900">
-            Paid Attorney Advertising
+            Attorney Advertising
           </p>
           <div className="mt-2 space-y-2 text-xs leading-relaxed text-slate-600">
             <p>
-              {site.name} is an advertising and self-help tool service. It is{" "}
-              <strong>not a law firm</strong> and does not provide legal advice,
-              legal services, or attorney referrals. Using this site or
-              submitting a request does not create an attorney–client
-              relationship.
-            </p>
-            <p>
-              If you request a case review, your information may be routed to a
-              participating attorney or law firm based on your location.{" "}
-              {site.name} does not evaluate, endorse, recommend, or guarantee any
-              attorney, and no attorney is selected based on the merits of your
-              specific matter. <strong>You are under no obligation</strong> to
-              hire any attorney or law firm.
+              {site.name} provides free self-help tools and general legal
+              information — it is <strong>not legal advice</strong>. Using this
+              site or contacting the firm does <strong>not</strong> create an
+              attorney–client relationship; that relationship is formed only
+              through a signed written agreement.
             </p>
             <p>
               Every case is different. Prior results do not guarantee a similar
@@ -105,29 +91,26 @@ export function Footer() {
               amounts shown are illustrative estimates only, not a promise of
               recovery. Any images or scenarios may be dramatizations, and terms
               such as &ldquo;best&rdquo; are marketing slogans, not a claim of
-              superior quality.
+              superior quality. You are under <strong>no obligation</strong> to
+              hire any attorney.
             </p>
             <p>
-              &ldquo;No fee unless you win,&rdquo; if offered by a participating
-              attorney, refers to <strong>attorney&apos;s fees only</strong>; you
-              may still be responsible for case costs and expenses.
+              &ldquo;No fee unless you win&rdquo; refers to{" "}
+              <strong>attorney&apos;s fees only</strong>; you may still be
+              responsible for case costs and expenses.
             </p>
-            {/* CA sponsor line — visible, names one attorney, links to the full list. */}
+            {/* Responsible-attorney identification — required for attorney advertising. */}
             <p className="pt-1 text-slate-700">
-              <strong>Sponsor:</strong> {site.sponsor.attorney},{" "}
-              {site.sponsor.firm}, {site.sponsor.location}
-              {site.sponsor.bar ? ` (State Bar No. ${site.sponsor.bar})` : ""} is
-              responsible for the content of this advertising.{" "}
-              <Link href="/sponsors/" className="underline hover:text-[var(--brand)]">
-                See the full list of participating attorneys
-              </Link>
-              .
+              This is attorney advertising. {site.firm.attorney},{" "}
+              {site.firm.name}, {site.firm.location}
+              {site.firm.bar ? ` (State Bar No. ${site.firm.bar})` : ""} is
+              responsible for its content.
             </p>
           </div>
         </div>
 
         <p className="mt-6 text-xs text-slate-500">
-          &copy; {year} {site.operator}. All rights reserved.
+          &copy; {year} {site.name}. All rights reserved.
         </p>
       </div>
     </footer>

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description:
-    "How ClaimValueCheck collects, uses, and shares information — including sharing requests with participating attorneys — and your privacy rights.",
+    "How ClaimValueCheck collects, uses, and protects your information, and your privacy rights.",
   path: "/privacy/",
 });
 
@@ -23,8 +23,9 @@ export default function Privacy() {
       <div className="prose mt-6 max-w-none space-y-4 text-slate-700">
         <p className="leading-relaxed">
           This Privacy Policy explains how {site.name} (&ldquo;we&rdquo;)
-          collects, uses, and shares information. {site.name} is a self-help tool
-          and advertising service, not a law firm.
+          collects, uses, and shares information. {site.name} offers free
+          self-help tools and is attorney advertising for the firm identified in
+          the footer.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">Calculations stay in your browser</h2>
@@ -37,17 +38,9 @@ export default function Privacy() {
         <h2 className="text-xl font-bold text-slate-900">Information you submit</h2>
         <p className="leading-relaxed">
           If you choose to request a case review, you may provide contact details
-          such as your name, phone number, email, and location.{" "}
-          <strong>
-            We may share that information with a participating attorney or law
-            firm
-          </strong>{" "}
-          based on your location so they can contact you about your potential
-          claim. See the{" "}
-          <Link href="/sponsors/" className="text-[var(--brand)] underline">
-            participating attorneys
-          </Link>
-          .
+          such as your name, phone number, and email. That information is used so
+          the firm can contact you about your potential claim. We do not sell
+          your personal information.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">Analytics</h2>
