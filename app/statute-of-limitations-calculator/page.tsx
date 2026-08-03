@@ -4,6 +4,7 @@ import { CalendarClock } from "lucide-react";
 import { SolCalculator } from "./SolCalculator";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TrustBar } from "@/components/TrustBar";
+import { AttorneyReferral } from "@/components/AttorneyReferral";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata, webApplicationSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -134,6 +135,8 @@ export default function Page() {
           </Link>
           .
         </p>
+
+        <AttorneyReferral />
       </section>
     </div>
   );

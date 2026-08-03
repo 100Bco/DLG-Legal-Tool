@@ -12,6 +12,14 @@ export const site = {
   // Canonical production origin. Update if the domain changes.
   url: "https://claimvaluecheck.com",
   locale: "en_US",
+
+  // Optional law firm referenced in the soft "next step" block after the FAQ.
+  // Naming a specific firm makes that block attorney advertising, so it carries
+  // its own disclosure. Leave name blank to hide the referral everywhere.
+  firm: {
+    name: "Dang Law Group",
+    url: "https://danglawgroup.com/",
+  },
 } as const;
 
 /** Absolute URL helper for canonical tags, sitemaps, and JSON-LD. */
