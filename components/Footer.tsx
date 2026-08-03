@@ -68,7 +68,8 @@ export function Footer() {
             legal advice or legal services. Results are approximate estimates and
             may differ from your actual situation. Using this site does not create
             an attorney–client relationship. For advice about your specific
-            situation, consult a licensed Texas attorney.
+            situation, consult a licensed Texas attorney. This site contains
+            attorney advertising.
           </p>
         </div>
 
